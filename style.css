@@ -15,4 +15,151 @@ body{
 /*1st div---> navbar */
 .navbar{
     background-color: aliceblue;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo img{
+    height: auto;
+    width: 100px;
+    cursor: pointer;
+}
+
+.Navlink{
+    display: flex;
+    gap: 25px;
+}
+.Navlink a{
+    text-decoration: none;
+    font-size: 17px;
+    font-family: 'Saira Stencil One', sans-serif;
+    color: black;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.Navlink a:hover,
+.Navlink a:focus{
+    background-color: #E87F24;
+    color: white;
+}
+.Search_bar{
+    display: flex;
+}
+.Search_bar input{
+    font-family:  'Saira Stencil One', sans-serif;
+    width: 280px;
+    height: 30px;
+    padding: 10px;
+    outline: none;
+    border-radius: 12px;
+}
+.Search_bar span{
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.Search_bar span:hover{
+    background-color: #E87F24;
+    color: white;
+}
+.Profile-Cart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+.Profile{
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.dropdown{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0, 0.2);
+    padding: 10px;
+    display: none;
+    width: 250px;
+}
+.dropdown-info{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+.dropdown-items a{
+    text-decoration: none;
+    font-family:  'Saira Stencil One', sans-serif;
+    font-size: 15px;
+    color: black;
+}
+.sign-in{
+    display: flex;
+    font-family:  'Saira Stencil One', sans-serif;
+    gap: 10px;
+}
+.dropdown-items{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.dropdown-items a:focus{
+    outline: none;
+    border: none;
+}
+.dropdown-items #id1:hover{
+    background-color: #DAF9DE;
+}
+.dropdown-items #id2:hover{
+    background-color: #DAF9DE;
+}
+.dropdown-items #id3:hover{
+    background-color: #DAF9DE;
+}
+.dropdown-items #id4:hover{
+    background-color: #DAF9DE;
+}
+.Profile:hover .dropdown{
+    display: block;
+}
+.Profile:hover{
+    background-color: #E87F24;
+}
+.Profile:hover span{
+    color: white;
+}
+.Cart{
+    font-family: 'Saira Stencil One', sans-serif;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.Cart:hover{
+    background-color: #E87F24;
+    color: white;
+}
+.Cart:hover span,
+.Cart:hover p{
+    color: white;
 }
