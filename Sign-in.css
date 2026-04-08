@@ -4,62 +4,66 @@
     box-sizing: border-box;
 }
 body{
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #F2EAE0;
 }
 .container{
+    padding: 20px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
+    height: 500px;
+    gap: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-.sub-container-1 img{
-    height: auto;
-    width: 250px;
-}
-.sub-container-2{
+.container-1{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 20px;
-    width: 400px;
-    height: 300px;
+    gap: 20px;
 }
-.accounts{
-    border: 1px solid black;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    width: 300px;
-    height: 700px;
+.container-1 h2{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
 }
-.accounts h3{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 20px;
+.container-1 input{
+    padding: 10px 40px;
 }
-.accounts label{
+.container-1 a{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
 }
-.accounts input{
-    padding: 5px;
-    width: 200px;
-    outline: none;
+.container-1 p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
 }
-.accounts button{
-    padding: 8px 30px;
-    width: 200px;
-    font-size: 14px;
-    background-color: #73A5CA;
+#sign-in-Btn{
+    padding: 6px 40px;
+    cursor: pointer;
     color: white;
+    background-color: #6FAF4F;
     border: none;
+    border-radius: 12px;
 }
-.accounts p{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 13px;
+#createBtn{
+    border: none;
+    border-radius: 12px;
+    padding: 10px 40px;
+    font-size: 15px;
+    cursor: pointer;
+    color: white;
+    background-color: #4C8CE4;
+}
+.container-2 {
+    height: 100%;
+}
+.container-2 img{
+    height: auto;
+    width: 340px;
 }
