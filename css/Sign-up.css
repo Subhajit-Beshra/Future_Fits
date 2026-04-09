@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(140deg, #3B9797, #ABDADC);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+h1{
+    font-family: 'Inter', sans-serif;
+    font-size: 40px;
+}
+.gradient-text{
+    background: linear-gradient(to right, #0B2D72, #0992C2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.container{
+    font-family: 'Inter', sans-serif;
+    border: 1px solid #fff;
+    box-shadow: 0 4px 10px #263B6A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 40px;
+    width: 300px;
+    height: 400px;
+    padding: 20px;
+}
+.heading{
+    width: 100%;
+    text-align: center;
+    color: #233D4D;
+}
+.info-include{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 300px;
+    font-size: 15px;
+}
+.info-include input[type = "text"]{
+    padding: 10px 50px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+}
+.button{
+    border-top: 1px solid #D62828;
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.button button{
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 15px;
+    background-color: #F77F00;
+    color: white;
+    cursor: pointer;
+}
+.button button:hover{
+    background-color: #f55454;
+}
+/*animation*/
+.reveal{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.active{
+    opacity: 1;
+    transform: translateY(0px);
+}
