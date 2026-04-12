@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="../../css/Shop.css">
+    <title>Shop Section</title>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="../../index.html"><img src="../../assests/images/best option.png" alt="picture"></a>
+            </div>
+            <div class="Navlink">
+                <a href="../../index.html" class="home">Home</a>
+                <a href="#" class="shop">Shop</a>
+                <a href="../../index.html#Categories" class="categories">Categories</a>
+                <a href="../Contact/Contact.html" class="contact">Contact</a>
+            </div>
+        <!--<div class="Search_bar">
+                <input type = "text" placeholder="Search Items">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+            </div> -->
+            <div class="Profile-Cart">
+                <div class="Profile">
+                    <span class="material-symbols-outlined">
+                        account_circle
+                    </span>
+                <div class="dropdown">
+                    <div class="dropdown-info">
+                        <div class="sign-in">
+                            <p>New Customer?</p>
+                            <a href="../auth/Sign-in.html">Start here</a>
+                        </div>
+                        <div class="dropdown-items">
+                            <a href="../dashboard/dashboard.html" id="id1">👤 My Profile</a>
+                            <a href="#orders" id="id2">📦 Orders</a>
+                            <a href="#wishlist" id="id3">❤ Wishlist</a>
+                            <a href="#seller" id="id4">🏪 Become a Seller</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="Cart">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
+                    fill="currentColor" viewBox="0 0 24 24" >
+                    <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->
+                    <path d="M21 4H6.17l-.18-1.15A1 1 0 0 0 5 2H2v2h2.14l1.87 12.15A1 1 0 0 0 7 17h12v-2H7.86l-.31-2H19c.45 0 .84-.3.96-.73l2-7A1 1 0 0 0 21 3.99Zm-2.75 7H7.24l-.77-5h13.2l-1.43 5ZM8 18a2 2 0 1 0 0 4 2 2 0 1 0 0-4m9 0a2 2 0 1 0 0 4 2 2 0 1 0 0-4"></path>
+                </svg>
+                <p>Cart</p>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="hero-section">
+            <div class="section-1">
+                <div class="hero-tag">
+                    <p>New Collegection -- 2026</p>
+                </div>
+                <div class="hero-title">
+                    Dress Bold,
+                    <br>
+                    Stay
+                    <span>future Ready</span>
+                </div>
+                <div class="hero-sub">
+                    <p>Streetwear crafted for the next generation. Minimalist cuts, bold statements.</p>
+                </div>
+                <div class="hero-btns">
+                    <!-- Instead of "Shop now" -->
+                    <button class="btn-white" onclick="document.querySelector('.products-grid').scrollIntoView({behavior: 'smooth'})">
+                    Browse products ↓
+                    </button>
+                </div>
+            </div>
+            <div class="section-2">
+                <div class="hero-stats">
+                    <div class="hero-stat-val">500+</div>
+                    <div class="hero-stat-label">Products</div>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat-val">12K+</div>
+                    <div class="hero-stat-label">Customer</div>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat-val">4.8★</div>
+                    <div class="hero-stat-label">Rating</div>
+                </div>
+            </div>
+        </div>
+        <div class="shop-body">
+            <div class="sidebar">
+                <div class="category">
+                    <div class="filter-title">CATEGORY</div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="option-all" name ="option" value="all" checked>
+                        <label for = "option-all">All</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="option-tops" name ="option" value = "tops">
+                        <label for = "option-all">Tops</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="option-bottoms" name ="option" value = "bottoms">
+                        <label for = "option-all">Bottoms</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="option-outerwear" name ="option" value = "outerwear">
+                        <label for = "option-all">Outerwear</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="option-footwear" name ="option" value = "footwear">
+                        <label for = "option-all">Footwear</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="option-accessories" name ="option" value = "accessories">
+                        <label for = "option-all">Accessories</label>
+                    </div>
+                </div>
+                <div class="slider">
+                    <label for="price-range">PRICE RANGE</label>
+                    <input type = "range" id = "countSlider" min = "₹0" max="₹10000">
+                </div>
+                <div class="size">
+                    <div class="filter-title">SIZE</div>
+                    <div class="size-options">
+                        <button class = "size-btn" data-style = "XS" checked>XS</button>
+                        <button class = "size-btn" data-style = "M">M</button>
+                        <button class = "size-btn" data-style = "S">S</button>
+                        <button class = "size-btn" data-style = "L">L</button>
+                        <button class = "size-btn" data-style = "XL">XL</button>
+                        <button class = "size-btn" data-style = "XXL">XXL</button>
+                    </div>
+                </div>
+                <div class="color">
+                    <div class="filter-title">COLOR</div>
+                    <div class="color-options">
+                        <button class = "color-btn" data-style = "black" checked></button>
+                        <button class = "color-btn" data-style = "white"></button>
+                        <button class = "color-btn" data-style = "red"></button>
+                        <button class = "color-btn" data-style = "green"></button>
+                        <button class = "color-btn" data-style = "violet"></button>
+                        <button class = "color-btn" data-style = "orange"></button>
+                    </div>
+                </div>
+                <div class="rating">
+                    <div class="filter-title">RATING</div>
+                    <div class="rating-option">
+                        <input type="checkbox" id="r4" checked>
+                        <label for = "r4">4★ &amp; above</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="checkbox" id="r3">
+                        <label for = "r3">3★ &amp; above</label>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content"></div>
+        </div>
+    </div>
+</body>
+</html>
