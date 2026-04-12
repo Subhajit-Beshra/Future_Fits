@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="../../css/Shop.css">
     <title>Shop Section</title>
 </head>
@@ -20,43 +20,36 @@
                 <a href="../../index.html#Categories" class="categories">Categories</a>
                 <a href="../Contact/Contact.html" class="contact">Contact</a>
             </div>
-        <!--<div class="Search_bar">
-                <input type = "text" placeholder="Search Items">
-                <span class="material-symbols-outlined">
-                    search
-                </span>
-            </div> -->
             <div class="Profile-Cart">
                 <div class="Profile">
                     <span class="material-symbols-outlined">
                         account_circle
                     </span>
-                <div class="dropdown">
-                    <div class="dropdown-info">
-                        <div class="sign-in">
-                            <p>New Customer?</p>
-                            <a href="../auth/Sign-in.html">Start here</a>
-                        </div>
-                        <div class="dropdown-items">
-                            <a href="../dashboard/dashboard.html" id="id1">👤 My Profile</a>
-                            <a href="#orders" id="id2">📦 Orders</a>
-                            <a href="#wishlist" id="id3">❤ Wishlist</a>
-                            <a href="#seller" id="id4">🏪 Become a Seller</a>
+                    <div class="dropdown">
+                        <div class="dropdown-info">
+                            <div class="sign-in">
+                                <p>New Customer?</p>
+                                <a href="../auth/Sign-in.html">Start here</a>
+                            </div>
+                            <div class="dropdown-items">
+                                <a href="../dashboard/dashboard.html" id="id1">👤 My Profile</a>
+                                <a href="#orders" id="id2">📦 Orders</a>
+                                <a href="#wishlist" id="id3">❤ Wishlist</a>
+                                <a href="#seller" id="id4">🏪 Become a Seller</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="Cart">
-                <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
-                    fill="currentColor" viewBox="0 0 24 24" >
-                    <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->
-                    <path d="M21 4H6.17l-.18-1.15A1 1 0 0 0 5 2H2v2h2.14l1.87 12.15A1 1 0 0 0 7 17h12v-2H7.86l-.31-2H19c.45 0 .84-.3.96-.73l2-7A1 1 0 0 0 21 3.99Zm-2.75 7H7.24l-.77-5h13.2l-1.43 5ZM8 18a2 2 0 1 0 0 4 2 2 0 1 0 0-4m9 0a2 2 0 1 0 0 4 2 2 0 1 0 0-4"></path>
-                </svg>
-                <p>Cart</p>
-            </div>
+                <div class="Cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21 4H6.17l-.18-1.15A1 1 0 0 0 5 2H2v2h2.14l1.87 12.15A1 1 0 0 0 7 17h12v-2H7.86l-.31-2H19c.45 0 .84-.3.96-.73l2-7A1 1 0 0 0 21 3.99Zm-2.75 7H7.24l-.77-5h13.2l-1.43 5ZM8 18a2 2 0 1 0 0 4 2 2 0 1 0 0-4m9 0a2 2 0 1 0 0 4 2 2 0 1 0 0-4"></path>
+                    </svg>
+                    <p>Cart</p>
+                </div>
             </div>
         </div>
-        </div>
+
         <div class="hero-section">
             <div class="section-1">
                 <div class="hero-tag">
@@ -72,9 +65,8 @@
                     <p>Streetwear crafted for the next generation. Minimalist cuts, bold statements.</p>
                 </div>
                 <div class="hero-btns">
-                    <!-- Instead of "Shop now" -->
                     <button class="btn-white" onclick="document.querySelector('.products-grid').scrollIntoView({behavior: 'smooth'})">
-                    Browse products ↓
+                        Browse products ↓
                     </button>
                 </div>
             </div>
@@ -93,75 +85,307 @@
                 </div>
             </div>
         </div>
+
         <div class="shop-body">
             <div class="sidebar">
-                <div class="category">
-                    <div class="filter-title">CATEGORY</div>
-                    <div class="filter-option">
-                        <input type="checkbox" id="option-all" name ="option" value="all" checked>
-                        <label for = "option-all">All</label>
+                <div class = "sidebar-info">
+                    <div class="category">
+                        <div class="filter-title">CATEGORY</div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="option-all" name="option" value="all" checked>
+                            <label for="option-all">All</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="option-tops" name="option" value="tops">
+                            <label for="option-tops">Tops</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="option-bottoms" name="option" value="bottoms">
+                            <label for="option-bottoms">Bottoms</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="option-outerwear" name="option" value="outerwear">
+                            <label for="option-outerwear">Outerwear</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="option-footwear" name="option" value="footwear">
+                            <label for="option-footwear">Footwear</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="option-accessories" name="option" value="accessories">
+                            <label for="option-accessories">Accessories</label>
+                        </div>
                     </div>
-                    <div class="filter-option">
-                        <input type="checkbox" id="option-tops" name ="option" value = "tops">
-                        <label for = "option-all">Tops</label>
+                    <div class="slider">
+                        <label for="countSlider">PRICE RANGE</label>
+                        <input type="range" id="countSlider" min="0" max="10000" value="5000">
+                        <span id="count-value">₹5000</span>
                     </div>
-                    <div class="filter-option">
-                        <input type="checkbox" id="option-bottoms" name ="option" value = "bottoms">
-                        <label for = "option-all">Bottoms</label>
+                    <div class="size">
+                        <div class="filter-title">SIZE</div>
+                        <div class="size-options">
+                            <button class="size-btn" data-style="XS">XS</button>
+                            <button class="size-btn" data-style="S">S</button>
+                            <button class="size-btn" data-style="M">M</button>
+                            <button class="size-btn" data-style="L">L</button>
+                            <button class="size-btn" data-style="XL">XL</button>
+                            <button class="size-btn" data-style="XXL">XXL</button>
+                        </div>
                     </div>
-                    <div class="filter-option">
-                        <input type="checkbox" id="option-outerwear" name ="option" value = "outerwear">
-                        <label for = "option-all">Outerwear</label>
+                    <div class="color">
+                        <div class="filter-title">COLOR</div>
+                        <div class="color-options">
+                            <button class="color-btn" data-style="black"></button>
+                            <button class="color-btn" data-style="white"></button>
+                            <button class="color-btn" data-style="red"></button>
+                            <button class="color-btn" data-style="green"></button>
+                            <button class="color-btn" data-style="violet"></button>
+                            <button class="color-btn" data-style="orange"></button>
+                        </div>
                     </div>
-                    <div class="filter-option">
-                        <input type="checkbox" id="option-footwear" name ="option" value = "footwear">
-                        <label for = "option-all">Footwear</label>
-                    </div>
-                    <div class="filter-option">
-                        <input type="checkbox" id="option-accessories" name ="option" value = "accessories">
-                        <label for = "option-all">Accessories</label>
-                    </div>
-                </div>
-                <div class="slider">
-                    <label for="price-range">PRICE RANGE</label>
-                    <input type = "range" id = "countSlider" min = "₹0" max="₹10000">
-                </div>
-                <div class="size">
-                    <div class="filter-title">SIZE</div>
-                    <div class="size-options">
-                        <button class = "size-btn" data-style = "XS" checked>XS</button>
-                        <button class = "size-btn" data-style = "M">M</button>
-                        <button class = "size-btn" data-style = "S">S</button>
-                        <button class = "size-btn" data-style = "L">L</button>
-                        <button class = "size-btn" data-style = "XL">XL</button>
-                        <button class = "size-btn" data-style = "XXL">XXL</button>
-                    </div>
-                </div>
-                <div class="color">
-                    <div class="filter-title">COLOR</div>
-                    <div class="color-options">
-                        <button class = "color-btn" data-style = "black" checked></button>
-                        <button class = "color-btn" data-style = "white"></button>
-                        <button class = "color-btn" data-style = "red"></button>
-                        <button class = "color-btn" data-style = "green"></button>
-                        <button class = "color-btn" data-style = "violet"></button>
-                        <button class = "color-btn" data-style = "orange"></button>
-                    </div>
-                </div>
-                <div class="rating">
-                    <div class="filter-title">RATING</div>
-                    <div class="rating-option">
-                        <input type="checkbox" id="r4" checked>
-                        <label for = "r4">4★ &amp; above</label>
-                    </div>
-                    <div class="rating-option">
-                        <input type="checkbox" id="r3">
-                        <label for = "r3">3★ &amp; above</label>
+                    <div class="rating">
+                        <div class="filter-title">RATING</div>
+                        <div class="rating-option">
+                            <input type="checkbox" id="r4" checked>
+                            <label for="r4">4★ &amp; above</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="checkbox" id="r3">
+                            <label for="r3">3★ &amp; above</label>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="main-content"></div>
+
+            <div class="main-content">
+                <div class="top-bar">
+                    <div class="top-bar-left">
+                        <select class="sort-select">
+                            <option value="featured">Sort: Featured</option>
+                            <option value="Low to High">Price: Low to High</option>
+                            <option value="High to Low">Price: High to Low</option>
+                            <option value="Newest First">Newest First</option>
+                            <option value="Best Rated">Best Rated</option>
+                        </select>
+                    </div>
+                    <div class="top-bar-right">
+                        <div class="Search_bar">
+                            <input type="text" placeholder="Search Items">
+                            <span class="material-symbols-outlined">search</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="card-hero">
+                            <p style="border-radius: 5px; background-color: black; color: #fff; width: 50px; padding: 0px 10px;">New</p>
+                            <span class="material-symbols-outlined">favorite</span>
+                        </div>
+                        <div class="card-content">
+                            <!-- <img src = "../../assests/images/hoodie.webp" alt="hoodie"> -->
+                        </div>
+                        <div class="card-info">
+                            <div class="prod-cat">OUTERWEAR</div>
+                            <div class="prod-name">Oversized Hoodie</div>
+                            <div class="prod-rating">⭐⭐⭐</div>
+                            <div class="prod-price-low">
+                                <div class="prod-price">
+                                    <span class="prod-price">₹2,199</span>
+                                    <span class="prod-original">₹2,999</span>
+                                </div>
+                                <button id="add-cart-btn">
+                                    <span class="material-symbols-outlined">
+                                    local_mall
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-hero">
+                            <p style="border-radius: 5px; background-color: #E5EEE4; color: red; width: 80px; padding: 0px 10px;">27% off</p>
+                            <span class="material-symbols-outlined">favorite</span>
+                        </div>
+                        <div class="card-content">
+                            <!-- <img src="../../assests/images/" -->
+                        </div>
+                        <div class="card-info">
+                            <div class="prod-cat">BOTTOMS</div>
+                            <div class="prod-name">Cargo Trouser</div>
+                            <div class="prod-rating">⭐⭐⭐⭐⭐</div>
+                            <div class="prod-price-low">
+                                <div class="prod-price">
+                                    <span class="prod-price">₹2,199</span>
+                                    <span class="prod-original">₹2,999</span>
+                                </div>
+                                <button id="add-cart-btn">
+                                    <span class="material-symbols-outlined">
+                                    local_mall
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-hero">
+                            <p style="border-radius: 5px; background-color: #E5EEE4; color: red; width: 50px; padding: 0px 10px;">Hot</p>
+                            <span class="material-symbols-outlined">favorite</span>
+                        </div>
+                        <div class="card-content"></div>
+                        <div class="card-info">
+                            <div class="prod-cat">BOTTOM</div>
+                            <div class="prod-name">Joggers</div>
+                            <div class="prod-rating">⭐⭐⭐⭐</div>
+                            <div class="prod-price-low">
+                                <div class="prod-price">
+                                    <span class="prod-price">₹1,799</span>
+                                    <span class="prod-original">₹2,499</span>
+                                </div>
+                                <button id="add-cart-btn">
+                                    <span class="material-symbols-outlined">
+                                    local_mall
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-hero">
+                            <p style="border-radius: 5px; background-color: black; color: #fff; width: 50px; padding: 0px 10px;">New</p>
+                            <span class="material-symbols-outlined">favorite</span>
+                        </div>
+                        <div class="card-content"></div>
+                        <div class="card-info">
+                            <div class="prod-cat">TOPS</div>
+                            <div class="prod-name">Graphics Tee</div>
+                            <div class="prod-rating">⭐⭐⭐</div>
+                            <div class="prod-price-low">
+                                <div class="prod-price">
+                                    <span class="prod-price">₹899</span>
+                                    <span class="prod-original">₹1,199</span>
+                                </div>
+                                <button id="add-cart-btn">
+                                    <span class="material-symbols-outlined">
+                                    local_mall
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-hero">
+                            <p style="border-radius: 5px; background-color: #E5EEE4; color: red; width: 80px; padding: 0px 10px;">17% off</p>
+                            <span class="material-symbols-outlined">favorite</span>
+                        </div>
+                        <div class="card-content"></div>
+                        <div class="card-info">
+                            <div class="prod-cat">OUTERWEAR</div>
+                            <div class="prod-name">Jacket</div>
+                            <div class="prod-rating">⭐⭐⭐⭐</div>
+                            <div class="prod-price-low">
+                                <div class="prod-price">
+                                    <span class="prod-price">₹3,999</span>
+                                    <span class="prod-original">₹4,999</span>
+                                </div>
+                                <button id="add-cart-btn">
+                                    <span class="material-symbols-outlined">
+                                    local_mall
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-hero">
+                            <p style="border-radius: 5px; background-color: #E5EEE4; color: red; width: 50px; padding: 0px 10px;">Hot</p>
+                            <span class="material-symbols-outlined">favorite</span>
+                        </div>
+                        <div class="card-content"></div>
+                        <div class="card-info">
+                            <div class="prod-cat">FOOTWEAR</div>
+                            <div class="prod-name">Sneakers</div>
+                            <div class="prod-rating">⭐⭐⭐⭐⭐</div>
+                            <div class="prod-price-low">
+                                <div class="prod-price">
+                                    <span class="prod-price">₹2,799</span>
+                                    <span class="prod-original">₹3,499</span>
+                                </div>
+                                <button id="add-cart-btn">
+                                    <span class="material-symbols-outlined">
+                                    local_mall
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-hero">
+                            <p style="border-radius: 5px; background-color: black; color: #fff; width: 50px; padding: 0px 10px;">New</p>
+                            <span class="material-symbols-outlined">favorite</span>
+                        </div>
+                        <div class="card-content"></div>
+                        <div class="card-info">
+                            <div class="prod-cat"></div>
+                            <div class="prod-name"></div>
+                            <div class="prod-rating"></div>
+                            <div class="prod-price-low">
+                                <div class="prod-price"></div>
+                                <div class="prod-original"></div>
+                                <button id="add-cart-btn">
+                                    <span class="material-symbols-outlined">
+                                    local_mall
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-hero">
+                            <p style="border-radius: 5px; background-color: #E5EEE4; color: red; width: 80px; padding: 0px 10px;">27% off</p>
+                            <span class="material-symbols-outlined">favorite</span>
+                        </div>
+                        <div class="card-content"></div>
+                        <div class="card-info">
+                            <div class="prod-cat"></div>
+                            <div class="prod-name"></div>
+                            <div class="prod-rating"></div>
+                            <div class="prod-price-low">
+                                <div class="prod-price"></div>
+                                <div class="prod-original"></div>
+                                <button id="add-cart-btn">
+                                    <span class="material-symbols-outlined">
+                                    local_mall
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="card-hero">
+                            <p style="border-radius: 5px; background-color: #E5EEE4; color: red; width: 50px; padding: 0px 10px;">Hot</p>
+                            <span class="material-symbols-outlined">favorite</span>
+                        </div>
+                        <div class="card-content"></div>
+                        <div class="card-info">
+                            <div class="prod-cat"></div>
+                            <div class="prod-name"></div>
+                            <div class="prod-rating"></div>
+                            <div class="prod-price-low">
+                                <div class="prod-price"></div>
+                                <div class="prod-original"></div>
+                                <button id="add-cart-btn">
+                                    <span class="material-symbols-outlined">
+                                    local_mall
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination"></div>
+            </div>
         </div>
     </div>
+    <script src="../../js/Shop.js"></script>
 </body>
 </html>
