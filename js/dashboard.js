@@ -2,12 +2,29 @@ import { auth, db, storage } from "../firebase.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
+import { signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 window.showSection = function(btn, sectionId) {
     const allButtons = document.querySelectorAll('.section-btn');
     allButtons.forEach((button) => button.classList.remove('active'));
     btn.classList.add('active');
 }
+
+const logOut = document.getElementById('log-out-btn');
+logOut.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    signOut(auth).then(() => {
+    // Sign-out successful.
+    alert("Successfully logged out!");
+
+     window.location.href = "../auth/Sign-up.html";
+    }).catch((error) => {
+    // An error happened.
+     alert(error.message);
+    });
+
+}) 
 
 onAuthStateChanged(auth, async (user) => {
     if (user) {
