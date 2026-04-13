@@ -327,7 +327,6 @@
     width: 220px;
     min-width: 220px;
     flex-shrink: 0;
-    border: 1px solid orange;
     display: flex;
     flex-direction: column;
     padding: 0px 20px;
@@ -425,7 +424,6 @@
 /* main-content*/
 .main-content{
     width: 100%;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -477,6 +475,19 @@
     flex-direction: column;
 
 }
+.card-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.card-content img{
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
 .prod-price-low{
     display: flex;
     flex-direction: row;
@@ -496,6 +507,5 @@
 .pagination{
     margin-top: 20px;
     width: 100%;
-    border: 1px solid black;
     height: 100px;
 }
