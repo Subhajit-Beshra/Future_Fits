@@ -488,11 +488,11 @@
     height: auto;
     object-fit: contain;
 }
-.prod-price-low{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.prod-cat,
+.prod-name,
+.prod-rating,
+.prod-price-low {
+    display: none;
 }
 #add-cart-btn{
     background-color: #E87F24;
