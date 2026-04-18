@@ -475,24 +475,61 @@
     flex-direction: column;
 
 }
-.card-content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+.card-content {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.card-content img{
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+
+.card-content img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
 }
 .prod-cat,
 .prod-name,
 .prod-rating,
 .prod-price-low {
-    display: none;
+    display: block;
+}
+.prod-cat{
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    color: #888;
+}
+.prod-name{
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+.prod-rating{
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    color: #FFA02E;
+}
+.prod-price-low{
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #E87F24;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.prod-price-low .material-symbols-outlined{
+    font-size: 20px;
+    background-color: #CA6180;
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    outline: none;
+}
+.material-symbols-outlined.active {
+    color: red;
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 #add-cart-btn{
     background-color: #E87F24;

@@ -57,6 +57,16 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
         container.appendChild(card);
+        
+        // Attach favorite icon listener after adding to DOM
+        const favoriteIcon = card.querySelector('.card-hero .material-symbols-outlined');
+        if (favoriteIcon) {
+          favoriteIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+          });
+        }
+        
       });
 
     })
