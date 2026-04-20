@@ -33,6 +33,13 @@
                     </span>
                     <h3>Wishlist</h3>
                 </button>
+                <button onclick="showSection(this, 'addresses')" class="section-btn">
+                    <span class="material-symbols-outlined">
+                        shopping_cart_checkout
+                    </span>
+                    <h3>Checkout</h3>
+                </button>
+
                 <button onclick="showSection(this, 'settings')" class="section-btn">
                     <span class="material-symbols-outlined">
                         settings
@@ -55,87 +62,89 @@
                 <a href="../Contact/Contact.html" class="contact">Contact</a>
             </div>
             <div class="content-section">
-                <div class="title">
-                    <h2>Profile</h2>
-                    <br>
-                    <p>Manage your personal information and account settings.</p>
-                </div>
-                <div class="profile-data">
-                    <div class="user-data">
-                        <div class="user-data-1">
-                            <div class="img-circle" id="profile-img-circle">
-                                <img id="profile-img" src="" alt="" style="display:none; width:100%; height:100%; border-radius:50%; object-fit:cover;">
-                                <span class="material-symbols-outlined" id="camera-icon">photo_camera</span>
-                                <input type="file" id="imgUpload" accept="image/*" style="display:none;">
+                <div class = "profile-section active">
+                    <div class="title">
+                        <h2>Profile</h2>
+                        <br>
+                        <p>Manage your personal information and account settings.</p>
+                    </div>
+                    <div class="profile-data">
+                        <div class="user-data">
+                            <div class="user-data-1">
+                                <div class="img-circle" id="profile-img-circle">
+                                    <img id="profile-img" src="" alt="" style="display:none; width:100%; height:100%; border-radius:50%; object-fit:cover;">
+                                    <span class="material-symbols-outlined" id="camera-icon">photo_camera</span>
+                                    <input type="file" id="imgUpload" accept="image/*" style="display:none;">
+                                </div>
+                                <div class="informations">
+                                    <h2 id = "profile-name">Name</h2>
+                                    <p id = "profile-email">email@gmail.com</p>
+                                </div>
                             </div>
-                            <div class="informations">
-                                <h2 id = "profile-name">Name</h2>
-                                <p id = "profile-email">email@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="user-data-2">
-                            <div class="user-details-1">
-                                <div class="profile_item">
-                                    <div class="profile__content">
-                                        <div class="content_value1">
-                                            <span class="material-symbols-outlined">
-                                                person
-                                            </span>
-                                        </div>
-                                        <div class="content_value2">
-                                            <span class="profile__label">Full Name</span>
-                                            <span class="profile__value" id = "profile-fullname"></span>
+                            <div class="user-data-2">
+                                <div class="user-details-1">
+                                    <div class="profile_item">
+                                        <div class="profile__content">
+                                            <div class="content_value1">
+                                                <span class="material-symbols-outlined">
+                                                    person
+                                                </span>
+                                            </div>
+                                            <div class="content_value2">
+                                                <span class="profile__label">Full Name</span>
+                                                <span class="profile__value" id = "profile-fullname"></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="profile_item">
-                                    <div class="profile__content">
-                                        <div class="content_value1">
-                                            <span class="material-symbols-outlined">
-                                                mail
-                                            </span>
+                                    <div class="profile_item">
+                                        <div class="profile__content">
+                                            <div class="content_value1">
+                                                <span class="material-symbols-outlined">
+                                                    mail
+                                                </span>
+                                            </div>
+                                            <div class="content_value2">
+                                                <span class="profile__label">Email</span>
+                                                <span class="profile__value" id = "profile-emailvalue"></span>
+                                            </div>
                                         </div>
-                                        <div class="content_value2">
-                                            <span class="profile__label">Email</span>
-                                            <span class="profile__value" id = "profile-emailvalue"></span>
+                                    </div>
+                                </div>
+                                <div class="user-details-2">
+                                    <div class="profile_item">
+                                        <div class="profile__content">
+                                            <div class="content_value1">
+                                                <span class="material-symbols-outlined">
+                                                    calendar_today
+                                                </span>
+                                            </div>
+                                            <div class="content_value2">
+                                                <span class="profile__label">Joined</span>
+                                                <span class="profile__value" id = "joined-date"></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="user-details-2">
-                                <div class="profile_item">
-                                    <div class="profile__content">
-                                        <div class="content_value1">
-                                            <span class="material-symbols-outlined">
-                                                calendar_today
-                                            </span>
-                                        </div>
-                                        <div class="content_value2">
-                                            <span class="profile__label">Joined</span>
-                                            <span class="profile__value" id = "joined-date"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="user-data-edit">
-                            <div class="prof-edit">
-                                <span class="material-symbols-outlined">
-                                    edit
-                                </span>
-                                <a href="#">Edit Profile</a>
-                            </div>
-                            <!-- <div class="pass-change">
-                                <a href="#">
+                            <div class="user-data-edit">
+                                <div class="prof-edit">
                                     <span class="material-symbols-outlined">
-                                        lock
-                                    </span>Change Password
-                                </a>
-                            </div> -->
+                                        edit
+                                    </span>
+                                    <a href="#">Edit Profile</a>
+                                </div>
+                                <!-- <div class="pass-change">
+                                    <a href="#">
+                                        <span class="material-symbols-outlined">
+                                            lock
+                                        </span>Change Password
+                                    </a>
+                                </div> -->
+                            </div>
                         </div>
                     </div>
-                </div>
+                </div>    
             </div>
         </div>
     </div>

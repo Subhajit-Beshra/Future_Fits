@@ -108,6 +108,6 @@ onAuthStateChanged(auth, async (user) => {
     });
 
     } else {
-        window.location.href = "../auth/Sign-up.html";
+        // window.location.href = "../auth/Sign-up.html";
     }
 });
