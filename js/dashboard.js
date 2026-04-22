@@ -8,7 +8,14 @@ window.showSection = function(btn, sectionId) {
     const allButtons = document.querySelectorAll('.section-btn');
     allButtons.forEach((button) => button.classList.remove('active'));
     btn.classList.add('active');
+
+    const sections = document.querySelectorAll(
+        '.profile-section, .order-section, .wishlist-section, .checkout-section, .settings-section, .log-out-section'
+    );
+    sections.forEach ((section) => section.style.display = 'none');
+    document.getElementById(sectionId).style.display = 'block';
 }
+
 
 const logOut = document.getElementById('log-out-btn');
 logOut.addEventListener('click', (e) => {
