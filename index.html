@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-    <link rel="stylesheet" href="css/style.css">
+        <!-- Preload critical font -->
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"></noscript>
+        <!-- Non-critical fonts loaded async -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" media="print" onload="this.media='all'" />
+        <!-- Inline critical CSS for above-the-fold (example, extend as needed) -->
+        <style>
+            body { font-family: 'Montserrat', Arial, sans-serif; margin:0; padding:0; }
+            .container { max-width: 1400px; margin: 0 auto; }
+            .navbar, .hero-section { width: 100%; }
+            .hero-section { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; min-height: 350px; }
+            .hero-section .description { flex: 1 1 300px; padding: 2rem; }
+            .hero-section .image { flex: 1 1 300px; display: flex; justify-content: center; }
+            .hero-section img { max-width: 100%; height: auto; border-radius: 1rem; }
+        </style>
+        <!-- Main CSS loaded async -->
+        <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
     <title>Future Fits</title>
 </head>
 <body>
@@ -82,7 +96,7 @@
                 </div>
             </div>
             <div class="image">
-                <img src="assests/images/tshirt.webp" alt="T-shirt">
+                <img src="assests/images/tshirt.webp" alt="T-shirt" width="350" height="350">
             </div>
         </div>
         <br></br>
@@ -100,7 +114,7 @@
                 </div>
                 <div class="featured-card">
                     <div class="f-card">
-                        <img src="assests/images/black (1).webp" alt ="Cool T-shirt">
+                        <img src="assests/images/black (1).webp" alt ="Cool T-shirt" loading="lazy" width="200" height="200">
                         <div class="details">
                             <h3>T-shirt</h3>
                             <h4>₹280</h4>
@@ -108,7 +122,7 @@
                         </div>
                     </div>
                     <div class="f-card">
-                        <img src="assests/images/hoodie (2).webp" alt="Cool Hoodie">
+                        <img src="assests/images/hoodie (2).webp" alt="Cool Hoodie" loading="lazy" width="200" height="200">
                         <div class="details">
                             <h3>Hoddie</h3>
                             <h4>₹430</h4>
@@ -116,7 +130,7 @@
                         </div>
                     </div>
                     <div class="f-card">
-                        <img src="assests/images/jacket (1).webp" alt=" Cool Jacket">
+                        <img src="assests/images/jacket (1).webp" alt=" Cool Jacket" loading="lazy" width="200" height="200">
                         <div class="details">
                             <h3>Jacket</h3>
                             <h4>₹750</h4>
@@ -124,7 +138,7 @@
                         </div>
                     </div>
                     <div class="f-card">
-                        <img src="assests/images/cap (1).webp" alt="Cool Cap">
+                        <img src="assests/images/cap (1).webp" alt="Cool Cap" loading="lazy" width="200" height="200">
                         <div class="details">
                             <h3>Cap</h3>
                             <h4>₹300</h4>
@@ -146,7 +160,7 @@
                 </div>
                     <div class="category-card">
                         <div class="c-card">
-                            <img src="assests/images/black hoodie (3).webp" alt ="Cool T-shirt">
+                            <img src="assests/images/black hoodie (3).webp" alt ="Cool T-shirt" loading="lazy" width="200" height="200">
                             <div class="details">
                                 <h3>T-shirt</h3>
                                 <h4>₹280</h4>
@@ -154,7 +168,7 @@
                             </div>
                         </div>    
                         <div class="c-card">
-                            <img src="assests/images/green.webp" alt ="Cool T-shirt">
+                            <img src="assests/images/green.webp" alt ="Cool T-shirt" loading="lazy" width="200" height="200">
                             <div class="details">
                                 <h3>T-shirt</h3>
                                 <h4>₹280</h4>
@@ -162,7 +176,7 @@
                             </div>    
                         </div>
                         <div class="c-card">
-                            <img src="assests/images/sweter.webp" alt ="Cool T-shirt">
+                            <img src="assests/images/sweter.webp" alt ="Cool T-shirt" loading="lazy" width="200" height="200">
                             <div class="details">
                                 <h3>T-shirt</h3>
                                 <h4>₹280</h4>
@@ -180,7 +194,7 @@
                 </div>
                 <div class="abt-details">
                     <div class="details-img">
-                        <img src="assests/images/awesome.webp" alt="logo picture">
+                        <img src="assests/images/awesome.webp" alt="logo picture" loading="lazy" width="200" height="200">
                     </div>
                     <div class="details-desc">
                         <p>Future Fites is a bold, modern t-shirt brand designed for individuals who want to express their personality and energy. Our mission is to create stylish, high-quality t-shirts that empower trendsetters to wear their vibe confidently every day. Each design blends comfort, creativity, and a fearless spirit, making every shirt more than just clothing—it’s a statement.</p>
@@ -264,6 +278,6 @@
             </div>
         </div>
     </div>
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>
