@@ -86,6 +86,10 @@
     border-radius: 50%;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
+
+.Profile:hover {
+    border-radius: 50%;
+}
 .dropdown{
     position: absolute;
     top: 100%;
