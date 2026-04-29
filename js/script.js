@@ -11,3 +11,7 @@ const observer = new IntersectionObserver((entries) => {
 }, {});
 
 elements.forEach(el => observer.observe(el));
+
+document.getElementById('shopBtn').addEventListener('click', () => {
+    window.location.href = "pages/shop/shop.html";
+});

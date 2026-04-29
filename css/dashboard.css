@@ -134,6 +134,7 @@ html, body{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    /* margin-bottom: 20px; */
 }
 .information input[type="text"],
 .information input[type="email"],
@@ -193,6 +194,7 @@ html, body{
 }
 
 .edit-profile-btn {
+    margin-top: 20px;
     display: flex;
     align-items: center;
     gap: 10px;

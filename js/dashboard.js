@@ -16,13 +16,13 @@ class Dashboard {
         );
 
         this.profile = {
-            name: document.getElementById('profile-name'),
-            email: document.getElementById('profile-email'),
-            fullname: document.getElementById('profile-fullname'),
-            emailvalue: document.getElementById('profile-emailvalue'),
-            joined: document.getElementById('joined-date'),
-            img: document.getElementById('profile-img'),
-            camera: document.getElementById('camera-icon'),
+            name: document.getElementById('name'),
+            email: document.getElementById('email'),
+            // fullname: document.getElementById('profile-fullname'),
+            // emailvalue: document.getElementById('profile-emailvalue'),
+            // joined: document.getElementById('joined-date'),
+            // img: document.getElementById('profile-img'),
+            // camera: document.getElementById('camera-icon'),
         };
 
         this.logoutBtn = document.getElementById('log-out-btn');
@@ -78,13 +78,13 @@ class Dashboard {
     }
 
     setProfile(data) {
-        const { name, email, joined, photoURL } = data;
+        const { name, email } = data;
 
-        this.profile.name.textContent = name || "";
-        this.profile.email.textContent = email || "";
-        this.profile.fullname.textContent = name || "";
-        this.profile.emailvalue.textContent = email || "";
-        this.profile.joined.textContent = joined || "";
+        this.profile.name.value = name || "";
+        this.profile.email.value = email || "";
+        // this.profile.fullname.textContent = name || "";
+        // this.profile.emailvalue.textContent = email || "";
+        // this.profile.joined.textContent = joined || "";
     }
 }
 
