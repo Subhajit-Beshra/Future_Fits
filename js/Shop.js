@@ -18,14 +18,14 @@ const container = document.querySelector(".products-grid");
 // wait till page loads (important)
 document.addEventListener("DOMContentLoaded", () => {
 
-  fetch("https://fakestoreapi.com/products/category/men%27s%20clothing")
-    .then(res => res.json())
+fetch('https://dummyjson.com/products/category/smartphones?limit=12')
+  .then(res => res.json())
     .then(data => {
 
       // clear old (if any)
       container.innerHTML = "";
 
-      data.forEach(product => {
+      data.products.forEach(product => {
 
         const card = document.createElement("div");
         card.classList.add("product-card");
@@ -36,13 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
 
           <div class="card-content">
-            <img src="${product.image}" alt="${product.title}">
+            <img src="${product.thumbnail}" alt="${product.title}">
           </div>
 
           <div class="card-info">
             <div class="prod-cat">${product.category}</div>
             <div class="prod-name">${product.title}</div>
-            <div class="prod-rating">⭐ ${product.rating?.rate || "N/A"}</div>
+            <div class="prod-rating">⭐ ${product.rating|| "N/A"}</div>
 
             <div class="prod-price-low">
               <div class="prod-price">

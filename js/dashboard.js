@@ -17,12 +17,7 @@ class Dashboard {
 
         this.profile = {
             name: document.getElementById('name'),
-            email: document.getElementById('email'),
-            // fullname: document.getElementById('profile-fullname'),
-            // emailvalue: document.getElementById('profile-emailvalue'),
-            // joined: document.getElementById('joined-date'),
-            // img: document.getElementById('profile-img'),
-            // camera: document.getElementById('camera-icon'),
+            email: document.getElementById('email')
         };
 
         this.logoutBtn = document.getElementById('log-out-btn');
