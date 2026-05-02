@@ -444,6 +444,9 @@ function renderProducts(products) {
 
 
         container.appendChild(card);
+        card.addEventListener("click", () => {
+            window.location.href = `../Cart/Cart.html`;
+        });
 
 
 
