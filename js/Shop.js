@@ -376,7 +376,7 @@ function renderProducts(products) {
 
 
         card.innerHTML = `
-
+            
             <div class="card-hero">
 
                 <span class="material-symbols-outlined favorite-icon">
@@ -422,7 +422,7 @@ function renderProducts(products) {
 
                     <div class="prod-price">
 
-                        ₹${product.price}
+                        $${product.price}
 
                     </div>
 
@@ -445,7 +445,7 @@ function renderProducts(products) {
 
         container.appendChild(card);
         card.addEventListener("click", () => {
-            window.location.href = `../Cart/Cart.html`;
+            window.location.href = `../Product/Product.html?id=${product.id}`;
         });
 
 
