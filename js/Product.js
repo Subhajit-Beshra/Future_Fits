@@ -37,7 +37,7 @@ if (!productId) {
                     <br>
                     <p><span>Return Policy: </span>${product.returnPolicy}</p>
                     <br>
-                    <p><span>Warranty: </span>${product.warranty}</p>
+                    <p><span>Warranty: </span>${product.warrantyInformation}</p>
                 </div>
                 <div class = "container-2-3">
                     <h1>Reviews</h1>
