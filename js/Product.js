@@ -111,5 +111,5 @@ function addToCart(id) {
 }
 function buyNow(id) {
     // alert(`Proceeding to buy product with ID ${id}!`);
-    window.location.href = `../pages/CheckPage/CheckPage.html?id=${id}`;
+    window.location.href = `../CheckPage/CheckPage.html?id=${id}`;
 }
