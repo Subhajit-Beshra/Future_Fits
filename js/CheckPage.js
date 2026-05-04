@@ -46,7 +46,7 @@ fetch(`https://dummyjson.com/products/${productId}`)
                 <p><span>Total: </span>$${(product.price * (1 - product.discountPercentage / 100) + 5).toFixed(2)}</p>
             </div>
             <div class="price-info-2">
-                <button class="checkout-button">Proceed to Checkout</button>
+                <button onclick = "proceedToCheckout()" class="checkout-button">Proceed to Checkout</button>
             </div>
         </div>    
     </div>
@@ -57,3 +57,21 @@ fetch(`https://dummyjson.com/products/${productId}`)
     const productInfo = document.querySelector(".product-information");
     productInfo.innerHTML = `<p>Failed to load product details 😢</p>`;
 });
+function proceedToCheckout() {
+    const toast = document.querySelector(".toast");
+    toast.style.display = "block";
+    const loginButton = document.querySelector(".login-btn");
+    loginButton.addEventListener("click", () => {
+        window.location.href = "../auth/Sign-in.html";
+    });
+    toast.classList.add("show");
+    // setTimeout(() => {
+    //     toast.classList.remove("show");
+    //     toast.style.display = "none";
+    // }, 9000);
+}
+function cancelToast() {
+    const toast = document.querySelector(".toast");
+    toast.classList.remove("show");
+    toast.style.display = "none";
+ }
