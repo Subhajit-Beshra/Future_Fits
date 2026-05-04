@@ -14,8 +14,8 @@ if (!productId) {
             <div class = "container-1">
                 <img src="${product.thumbnail}" alt="${product.title}" />
                 <div class = "buttons">
-                    <button class="add-to-cart">Add to Cart</button>
-                    <button class="buy-now">Buy Now</button>
+                    <button onClick = "addToCart(${product.id})" class="add-to-cart">Add to Cart</button>
+                    <button onClick = "buyNow(${product.id})" class="buy-now">Buy Now</button>
                 </div>
             </div>
             <div class = "container-2">
@@ -105,4 +105,11 @@ if (!productId) {
         cartItem.innerHTML = `<h2>Error loading product</h2><p>Please try again later.</p>`;
     });
 
+}
+function addToCart(id) {
+    // alert(`Product with ID ${id} added to cart!`)
+}
+function buyNow(id) {
+    // alert(`Proceeding to buy product with ID ${id}!`);
+    window.location.href = `../pages/CheckPage/CheckPage.html?id=${id}`;
 }
