@@ -1,3 +1,7 @@
+import { auth } from "../firebase.js";
+import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
 
@@ -46,32 +50,43 @@ fetch(`https://dummyjson.com/products/${productId}`)
                 <p><span>Total: </span>$${(product.price * (1 - product.discountPercentage / 100) + 5).toFixed(2)}</p>
             </div>
             <div class="price-info-2">
-                <button onclick = "proceedToCheckout()" class="checkout-button">Proceed to Checkout</button>
+                <button class="checkout-button">Proceed to Checkout</button>
             </div>
         </div>    
     </div>
     `;
+    const checkoutButton = document.querySelector(".checkout-button");
+    checkoutButton.addEventListener("click", () => {
+        
+        onAuthStateChanged(auth, (user) => {
+            if (user){
+                console.log("User is authenticated, proceeding to shipping...");
+                window.location.href = `../Shipping/Shipping.html?id=${productId}`;
+            }else{
+                console.log("User is not authenticated, showing toast...");
+                const toast = document.querySelector(".toast");
+                toast.style.display = "block";
+                setTimeout(() => {
+                    toast.classList.add("show");
+                }, 10);
+            }
+        });
+    });
 })
 .catch(error => {
     console.error("Error fetching product details:", error);
     const productInfo = document.querySelector(".product-information");
     productInfo.innerHTML = `<p>Failed to load product details 😢</p>`;
 });
-function proceedToCheckout() {
-    const toast = document.querySelector(".toast");
-    toast.style.display = "block";
-    const loginButton = document.querySelector(".login-btn");
-    loginButton.addEventListener("click", () => {
-        window.location.href = "../auth/Sign-in.html";
-    });
-    toast.classList.add("show");
-    // setTimeout(() => {
-    //     toast.classList.remove("show");
-    //     toast.style.display = "none";
-    // }, 9000);
-}
+
+const loginButton = document.querySelector(".login-btn");
+loginButton.addEventListener("click", () => {
+    console.log("Redirecting to sign-in page...");
+    window.location.href = `../auth/Sign-in.html`;
+});
+
 function cancelToast() {
     const toast = document.querySelector(".toast");
     toast.classList.remove("show");
     toast.style.display = "none";
- }
+}
