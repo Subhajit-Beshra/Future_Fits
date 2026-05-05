@@ -21,6 +21,150 @@
 }
 .logo img{
     height: auto;
-    width: 200px;
+    width: 150px;
     cursor: pointer;
+}
+/*2nd div ------->  Shipping-container */
+.shipping-container{
+    display: flex;
+    flex-direction: row; 
+    width: 100%;
+    justify-content: space-around;
+    gap: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.shipping-container .title-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    gap: 10px;
+}
+.shipping-section{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 20px;
+    width: 660px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;;
+}
+.shipping-section .title-section svg{
+    color: #454040;
+}
+.shipping-section .heading{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.shipping-section p, .save-btn{
+    color: #313647;
+}
+.input-section{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.input-section input{
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 6px;
+}
+.name-section{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    width: 100%;
+}
+.name-section .full-name, .phone-num, .email-section, .address-section, .country-section, .city-section, .state-section, .code-section{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.place-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+.state-section select, .country-section select{
+    padding: 10px 5px ;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+.button-section{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.button-section .continue-btn{
+   width: 100%; 
+}
+.button-section .save-btn input[type="checkbox"]{
+    accent-color: #67C090;
+}
+.continue-btn button{
+    width: 100%;
+    padding: 10px 40px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #fff;
+    font-size: 15px;
+    background-color: #67C090;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.continue-btn button:hover{
+    background-color: #59AC77;
+}
+.continue-btn button:active{
+    background-color: #67C090;
+}
+/*3rd div ---------> order summary */
+.order-section{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 300px;
+}
+.order{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.summary-product, .cost-section p{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.cost-section{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.secure-section{
+    display: flex;
+    flex-direction: row;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    gap: 10px;
+    border: 1px solid #59AC77;
+    border-radius: 4px;
+    padding: 10px 20px;
+    background-color: #F3F4F4;
+}
+.secure-section svg, .heading h4{
+    color: #59AC77;
+}
+.heading p{
+    color: #313647;
 }
