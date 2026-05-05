@@ -11,158 +11,18 @@
 }
 /*1st div---> navbar */
 .navbar{
-    background-color: aliceblue;
     width: 100%;
+    height: 80px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
 }
 .logo img{
     height: auto;
-    width: 100px;
+    width: 200px;
     cursor: pointer;
-}
-
-.Navlink{
-    display: flex;
-    gap: 25px;
-}
-.Navlink a{
-    text-decoration: none;
-    font-size: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    color: black;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-.Navlink a:hover,
-.Navlink a:focus{
-    background-color: #E87F24;
-    color: white;
-}
-.Search_bar{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.Search_bar input{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    width: 280px;
-    height: 30px;
-    padding: 10px;
-    outline: none;
-    border-radius: 12px;
-}
-.Search_bar span{
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    border-radius: 8px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-.Search_bar span:hover{
-    background-color: #E87F24;
-    color: white;
-}
-.Profile-Cart{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-}
-.Profile{
-    position: relative;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    border-radius: 50%;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-.dropdown{
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0, 0.2);
-    padding: 10px;
-    display: none;
-    width: 250px;
-    z-index: 999;
-}
-.dropdown-info{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-}
-.dropdown-items a{
-    text-decoration: none;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 15px;
-    color: black;
-}
-.sign-in{
-    display: flex;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    gap: 10px;
-}
-.dropdown-items{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.dropdown-items a:focus{
-    outline: none;
-    border: none;
-}
-.dropdown-items #id1:hover{
-    background-color: #DAF9DE;
-}
-.dropdown-items #id2:hover{
-    background-color: #DAF9DE;
-}
-.dropdown-items #id3:hover{
-    background-color: #DAF9DE;
-}
-.dropdown-items #id4:hover{
-    background-color: #DAF9DE;
-}
-.Profile:hover .dropdown{
-    display: block;
-}
-.Profile:hover{
-    background-color: #E87F24;
-}
-.Profile:hover span{
-    color: white;
-}
-.Cart{
-    font-size: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-.Cart:hover{
-    background-color: #E87F24;
-    color: white;
-}
-.Cart:hover span,
-.Cart:hover p{
-    color: white;
 }
 /*2nd div---> product information */
 .product-information{

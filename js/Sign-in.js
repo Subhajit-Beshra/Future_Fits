@@ -22,8 +22,15 @@ signInBtn.addEventListener("click", async (e) => {
 
         alert("Login successful!");
 
+        const redirectPage = localStorage.getItem("redirectAfterLogin");
+        if (redirectPage) {
+            window.location.href = redirectPage;
+            localStorage.removeItem("redirectAfterLogin");
+        }else{
+            window.location.href = "../dashboard/dashboard.html";
+        }
         // Redirect to dashboard
-        window.location.href = "../dashboard/dashboard.html";
+        
 
     } catch (error) {
         if (error.code === "auth/user-not-found") {

@@ -64,6 +64,7 @@ fetch(`https://dummyjson.com/products/${productId}`)
                 window.location.href = `../Shipping/Shipping.html?id=${productId}`;
             }else{
                 console.log("User is not authenticated, showing toast...");
+                localStorage.setItem("redirectAfterLogin", `../Shipping/Shipping.html?id=${productId}`);
                 const toast = document.querySelector(".toast");
                 toast.style.display = "block";
                 setTimeout(() => {
@@ -84,6 +85,9 @@ loginButton.addEventListener("click", () => {
     console.log("Redirecting to sign-in page...");
     window.location.href = `../auth/Sign-in.html`;
 });
+
+const cancel_button = document.querySelector(".cancel-btn");
+cancel_button.addEventListener("click", cancelToast);
 
 function cancelToast() {
     const toast = document.querySelector(".toast");
