@@ -1,26 +1,48 @@
 import { auth, db } from "../firebase.js";
-import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import {
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+import {
+    doc,
+    getDoc,
+    setDoc
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 class Dashboard {
     constructor() {
         this.currentUser = null;
+        this.isEditingAddress = false;
+
         this.cacheDOM();
         this.init();
     }
 
     cacheDOM() {
-        this.buttons = document.querySelectorAll('.section-btn');
+        this.buttons = document.querySelectorAll(".section-btn");
+
         this.sections = document.querySelectorAll(
-            '.profile-section, .order-section, .wishlist-section, .checkout-section, .settings-section, .log-out-section'
+            ".profile-section, .order-section, .wishlist-section, .checkout-section, .settings-section, .log-out-section"
         );
 
         this.profile = {
-            name: document.getElementById('name'),
-            email: document.getElementById('email')
+            name: document.getElementById("name"),
+            email: document.getElementById("email")
         };
 
-        this.logoutBtn = document.getElementById('log-out-btn');
+        this.logoutBtn = document.getElementById("log-out-btn");
+
+        // address inputs
+        this.addressInputs = {
+            address: document.getElementById("address"),
+            city: document.getElementById("city"),
+            state: document.getElementById("state"),
+            zip: document.getElementById("zip"),
+            phone: document.getElementById("phone")
+        };
+
+        this.editAddressBtn = document.querySelector(".edit-address-btn");
     }
 
     init() {
@@ -29,23 +51,26 @@ class Dashboard {
     }
 
     addEvents() {
-        // Section switching
+        // section switch
         this.buttons.forEach(btn => {
-            btn.addEventListener('click', () => this.switchSection(btn));
+            btn.addEventListener("click", () => this.switchSection(btn));
         });
 
-        // Logout
-        this.logoutBtn?.addEventListener('click', () => this.logout());
+        // logout
+        this.logoutBtn?.addEventListener("click", () => this.logout());
+
+        // edit address
+        this.editAddressBtn?.addEventListener("click", () => this.toggleAddressEdit());
     }
 
     switchSection(button) {
         const id = button.dataset.section;
 
-        this.buttons.forEach(b => b.classList.remove('active'));
-        button.classList.add('active');
+        this.buttons.forEach(b => b.classList.remove("active"));
+        button.classList.add("active");
 
-        this.sections.forEach(sec => sec.classList.add('hidden'));
-        document.getElementById(id)?.classList.remove('hidden');
+        this.sections.forEach(sec => sec.classList.add("hidden"));
+        document.getElementById(id)?.classList.remove("hidden");
     }
 
     async logout() {
@@ -53,8 +78,8 @@ class Dashboard {
             await signOut(auth);
             alert("Logged out");
             window.location.href = "../auth/Sign-up.html";
-        } catch (e) {
-            console.error(e);
+        } catch (err) {
+            console.error(err);
             alert("Logout failed");
         }
     }
@@ -64,22 +89,70 @@ class Dashboard {
             if (!user) return;
 
             this.currentUser = user;
-            const snap = await getDoc(doc(db, "users", user.uid));
 
-            if (snap.exists()) {
-                this.setProfile(snap.data());
+            // PROFILE DATA
+            const userSnap = await getDoc(doc(db, "users", user.uid));
+
+            if (userSnap.exists()) {
+                const data = userSnap.data();
+                this.profile.name.value = data.name || "";
+                this.profile.email.value = data.email || "";
+            }
+
+            // ADDRESS DATA
+            const addressSnap = await getDoc(doc(db, "addresses", user.uid));
+
+            if (addressSnap.exists()) {
+                this.setAddress(addressSnap.data());
             }
         });
     }
 
-    setProfile(data) {
-        const { name, email } = data;
+    setAddress(data) {
+        this.addressInputs.address.value = data.address || "";
+        this.addressInputs.city.value = data.city || "";
+        this.addressInputs.state.value = data.state || "";
+        this.addressInputs.zip.value = data.code || "";
+        this.addressInputs.phone.value = data.number || "";
+    }
 
-        this.profile.name.value = name || "";
-        this.profile.email.value = email || "";
-        // this.profile.fullname.textContent = name || "";
-        // this.profile.emailvalue.textContent = email || "";
-        // this.profile.joined.textContent = joined || "";
+    toggleAddressEdit() {
+        const inputs = Object.values(this.addressInputs);
+
+        this.isEditingAddress = !this.isEditingAddress;
+
+        inputs.forEach(input => {
+            input.disabled = !this.isEditingAddress;
+        });
+
+        // button text change
+        this.editAddressBtn.querySelector("span").innerText =
+            this.isEditingAddress ? "Save Address" : "Edit Address";
+
+        // if saving
+        if (!this.isEditingAddress) {
+            this.saveAddress();
+        }
+    }
+
+    async saveAddress() {
+        try {
+            if (!this.currentUser) return;
+
+            await setDoc(doc(db, "addresses", this.currentUser.uid), {
+                address: this.addressInputs.address.value,
+                city: this.addressInputs.city.value,
+                state: this.addressInputs.state.value,
+                code: this.addressInputs.zip.value,
+                number: this.addressInputs.phone.value
+            });
+
+            alert("Address updated successfully");
+
+        } catch (err) {
+            console.error(err);
+            alert("Failed to update address");
+        }
     }
 }
 

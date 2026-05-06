@@ -1,3 +1,6 @@
+import { auth, db } from "../firebase.js";
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
 
@@ -59,7 +62,24 @@ fetch("https://countriesnow.space/api/v0.1/countries/states")
 })
 
 const continueBtn = document.getElementById("continue-btn");
-continueBtn.addEventListener("click", () => {
-    window.location.href = `../Payment/Payment.html?id=${productId}`;
-})
+continueBtn.addEventListener("click", async(e) => {
+    e.preventDefault();
+    const user = auth.currentUser;
+
+    try{
+        await setDoc(doc(db, "addresses", user.uid), {
+         number: document.getElementById("number").value,
+         address: document.getElementById("address").value,
+         city: document.getElementById("city").value,
+         state: document.getElementById("state").value,
+         code: document.getElementById("code").value,
+         country: document.getElementById("country").value
+        });
+        window.location.href = `../Payment/Payment.html?id=${productId}`;
+    }catch(error){
+        console.error(error);
+        alert("Something went wrong!");
+    }
+
+});
 
