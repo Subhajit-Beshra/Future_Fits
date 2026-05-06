@@ -28,3 +28,38 @@ fetch(`https://dummyjson.com/products/${productId}`)
 })
 .catch(err => console.log(err));
 
+const country = document.querySelector("#country");
+const state = document.querySelector("#state");
+
+fetch("https://countriesnow.space/api/v0.1/countries/states")
+.then(res => res.json())
+.then(data => {
+    console.log(data);
+    // first get all countries
+    const countries = data.data;
+    //add to dropdown one by one
+    countries.forEach( c => {
+        country.innerHTML += `
+        <option value = "${c.name}">${c.name}</option>
+        `;
+    })
+    //States would be shown according to the country
+    country.addEventListener("change", () => {
+
+        //to find our state we need to find our country first
+        const selectedCountry = countries.find(c => c.name === country.value);
+
+        //first get all states one by one
+        selectedCountry.states.forEach (s => {
+            state.innerHTML += `
+            <option value = "${s.name}">${s.name}</option>
+            `;
+        })
+    })
+})
+
+const continueBtn = document.getElementById("continue-btn");
+continueBtn.addEventListener("click", () => {
+    window.location.href = `../Payment/Payment.html?id=${productId}`;
+})
+
