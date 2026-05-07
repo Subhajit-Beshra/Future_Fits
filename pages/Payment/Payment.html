@@ -1,17 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="../../css/Shipping.css">
-    <link rel="icon" href="../../assests/images/favicon.png" type="image/png">
-    <link rel = "stylesheet" href="../../cs/Payment.css">
-    <title>Payment Section</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="../../css/Payment.css">
+  <link rel="icon" href="../../assests/images/Favicon.png" type="image/png">
+  <title>Payment Section</title>
 </head>
 <body>
-    
-    <script src = "../../js/Payment.js"></script>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <a href="../../index.html"><img src="../../assests/images/best option.png" alt="picture"></a>
+      </div>    
+    </div>
+    <div class="payment-container">
+      <div class="payment-section">
+        <div class="title-section">
+          <div class="icons">
+            <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
+            fill="currentColor" viewBox="0 0 24 24" >
+            <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 2v2H4V6zM4 18v-6h16v6z"></path><path d="M6 14h6v2H6z"></path>
+            </svg>
+          </div>
+          <div class="heading">
+            <h2>Payment</h2>
+            <p>purchase your payment by providing your payment details</p>
+          </div>
+        </div>
+        <div class="input-section">
+          <div class="card-details">
+            <h4>Card Details (ATM Card/ Debit Card/ Credit Card)</h4>
+            <div class="c-number">
+              <label for="c-number">Card Number</label>
+              <input type = "number" id="number" placeholder="1234 5678 9012 3456" required>
+            </div>
+            <div class="date-cvv">
+              <div class="date">
+                <label for = "date">Expiry Date</label>
+                <input type="text" id="e-date" placeholder="MM / YY" required>
+              </div>
+              <div class="cvv">
+                <label for="cvv">CVV</label>
+                <input type="number" id="cvv" placeholder="123" required>
+              </div>
+            </div>
+            <div class="card-holder">
+              <label for="card-holder">Card Holder</label>
+              <input type="text" id="c-holder" placeholder="Name on Card" required>
+            </div>
+          </div>
+        </div>
+        <div class="button-section">
+          <button class="pay-btn">
+              <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
+              fill="currentColor" viewBox="0 0 24 24" >
+              <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->
+              <path d="M6 22h12c1.1 0 2-.9 2-2v-9c0-1.1-.9-2-2-2h-1V7c0-2.76-2.24-5-5-5S7 4.24 7 7v2H6c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2M9 7c0-1.65 1.35-3 3-3s3 1.35 3 3v2H9zm-3 4h12v9H6z"></path>
+              </svg>
+              <p>Pay Securely</p>
+          </button>
+        </div>
+      </div>
+      <div class="order-section">
+        <div class="title-section">
+          <div class="icon">
+            <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
+            fill="currentColor" viewBox="0 0 24 24" >
+            <!--Boxicons v3.0.8 https://boxicons.com | License  https://docs.boxicons.com/free-->
+            <path d="M6 22h12c1.1 0 2-.9 2-2v-9c0-1.1-.9-2-2-2h-1V7c0-2.76-2.24-5-5-5S7 4.24 7 7v2H6c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2M9 7c0-1.65 1.35-3 3-3s3 1.35 3 3v2H9zm-3 4h12v9H6z"></path>
+            </svg>
+          </div>
+          <div class="title">
+            <h2>Order Summary</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../js/Payment.js"></script>
 </body>
 </html>
