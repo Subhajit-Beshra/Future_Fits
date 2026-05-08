@@ -146,9 +146,49 @@
 .order-section{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 10px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    width: 300px;
+}
+.summary-product{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+.cost-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0px 20px;
+}
+.price-info{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.price-info p{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.addresses{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0px 20px;
+}
+.user-address{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
