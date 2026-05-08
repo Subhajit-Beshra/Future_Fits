@@ -168,3 +168,75 @@
 .heading p{
     color: #313647;
 }
+/* last div -----> footer */
+.footer-section{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #0f1f1f;
+}
+.f-sec1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px;
+}
+.brand, .help, .company{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 20px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #FFD150;
+}
+.brand h2{
+    font-size: 30px;
+}
+.brand p{
+    color: #EDDCC6;    
+}
+.company a, .help a{
+    text-decoration: none;
+    color: #EDDCC6;
+}
+.social-icons{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.social-icons a{
+    color: #FFD150;
+    border: 1px solid #FFD150;
+    padding: 8px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.f-sec2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid #605B51;
+    margin-bottom: 40px;
+}
+.f-sec2 .copyright{
+    margin-top: 30px;
+}
+.f-sec2 .pay-methods{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+}
+.pay-methods p{
+    border: 1px solid #605B51;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    color: #605B51;;
+}

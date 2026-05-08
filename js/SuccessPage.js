@@ -5,24 +5,27 @@ import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/f
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
 
-let currentProduct;
-
 fetch(`https://dummyjson.com/products/${productId}`)
 .then(res => res.json())
 .then(product => {
 
-    currentProduct = product;
     console.log(product);
-    const productInfo = document.querySelector(".product-information");
-    const costInfo = document.querySelector(".cost-section");
+    const productInfo = document.querySelector(".product-info");
+    const costInfo = document.querySelector(".cost-info");
     productInfo.innerHTML = `
         <div class="summary-product">
             <img src="${product.thumbnail}" width="80">
-            <div class ="summary-info">
-                <h4>${product.title}</h4>
-                <div class = "more-details">
-                   <p>Qyt: 1</p>
-                   <p>Size: Medium</p>
+            <div class = "extra">
+                <div class ="summary-info">
+                    <h4>${product.title}</h4>
+                    <div class = "more-details">
+                    <p>Qyt: 1</p>
+                    <p>Size: Medium</p>
+                    </div>       
+                </div>
+                <div class = "price">
+                    <p>$${product.price}</p>
+                </div>
             </div>
         </div>
     `;
@@ -36,7 +39,6 @@ fetch(`https://dummyjson.com/products/${productId}`)
         </div>    
     `;
 })
-.catch(err => console.log(err));
 
 onAuthStateChanged(auth, async (user) => {
 
@@ -85,37 +87,16 @@ onAuthStateChanged(auth, async (user) => {
     }
 
 });
+const elements = document.querySelectorAll('.fade-in');
 
-const payBtn = document.querySelector(".pay-btn");
-payBtn.addEventListener("click", async() => {
-    
-    const user = auth.currentUser;
-    try{
-        //Generate Order ID
-        const orderId = "ORD" + Date.now();
-        //Calculate Total
-        const total = ( currentProduct.price*(1 - currentProduct.discountPercentage/100) +5 ).toFixed(2);
-        //Fetch address again
-        const docRef = doc(db, "addresses", user.uid);
-        const docSnap = await getDoc(docRef);
-        const addressData = docSnap.data();
-        //Save Order
-        await addDoc(collection (db, "orders"), {
-            orderId: orderId,
-            userId: user.uid,
-            productId: currentProduct.title,
-            productPrice: currentProduct.price,
-            thumbnail: currentProduct.thumbnail,
-            totalPrice: total,
-            address: addressData,
-            paymentStatus: "Paid",
-            createdAt: new Date()
-        });
-        //Redirect
-        window.location.href = `../SuccessPage/SuccessPage.html?id=${productId}`;
-
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }else{
+      entry.target.classList.remove('show');
     }
-    catch{
+  });
+}, {});
 
-    }
-})
+elements.forEach(el => observer.observe(el));
