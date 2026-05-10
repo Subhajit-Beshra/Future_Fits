@@ -3,44 +3,56 @@ import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/1
 
 const signInBtn = document.getElementById("sign-in-Btn");
 
+// 
+function showToast(message, type = "success") {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.remove("success", "error");
+
+    toast.classList.add("show", type);
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3000);
+}
+
 signInBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("Password").value;
 
-    // Validation
     if (!email || !password) {
-        alert("Please fill all fields");
+        showToast("Please fill all fields", "error"); // ← use toast, not alert
         return;
     }
 
     try {
-        // 🔑 Login user
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
+        showToast("Login successful!", "success"); // ← use toast, not alert
 
-        alert("Login successful!");
-
-        const redirectPage = localStorage.getItem("redirectAfterLogin");
-        if (redirectPage) {
-            window.location.href = redirectPage;
-            localStorage.removeItem("redirectAfterLogin");
-        }else{
-            window.location.href = "../dashboard/dashboard.html";
-        }
-        // Redirect to dashboard
-        
+        setTimeout(() => {
+            const redirectPage = localStorage.getItem("redirectAfterLogin");
+            if (redirectPage) {
+                localStorage.removeItem("redirectAfterLogin");
+                window.location.href = redirectPage;
+            } else {
+                window.location.href = "../dashboard/dashboard.html";
+            }
+        }, 1000); // small delay so user sees the success toast
 
     } catch (error) {
-        if (error.code === "auth/user-not-found") {
-            alert("User not found");
-        } else if (error.code === "auth/wrong-password") {
-            alert("Wrong password");
+        // Firebase v9+ uses auth/invalid-credential for bad email/password
+        if (error.code === "auth/invalid-credential") {
+            showToast("Invalid email or password", "error");
         } else if (error.code === "auth/invalid-email") {
-            alert("Invalid email");
+            showToast("Invalid email format", "error");
+        } else if (error.code === "auth/too-many-requests") {
+            showToast("Too many attempts. Try again later.", "error");
         } else {
-            alert("Error: " + error.message);
+            showToast("Something went wrong. Please try again.", "error");
         }
     }
 });

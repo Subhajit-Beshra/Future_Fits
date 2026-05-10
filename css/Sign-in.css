@@ -68,3 +68,34 @@ body{
     height: auto;
     width: 340px;
 }
+#toast{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #111;
+    color: white;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+#toast.show{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#toast.success{
+    background-color: #28a745;
+}
+
+#toast.error{
+    background-color: #dc3545;
+}

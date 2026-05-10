@@ -24,6 +24,30 @@
     width: 150px;
     cursor: pointer;
 }
+.toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* shifts it back by half its own width & height */
+    background-color: #dc3545;
+    height: 100px;
+    width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    /* opacity: 0; */
+    color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease; 
+}
+.toast.show{
+    opacity: 1;
+}
 /*2nd div ------->  Shipping-container */
 .shipping-container{
     display: flex;
