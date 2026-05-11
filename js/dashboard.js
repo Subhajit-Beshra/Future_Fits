@@ -33,7 +33,6 @@ class Dashboard {
 
         this.logoutBtn = document.getElementById("log-out-btn");
 
-        // address inputs
         this.addressInputs = {
             address: document.getElementById("address"),
             city: document.getElementById("city"),
@@ -43,6 +42,8 @@ class Dashboard {
         };
 
         this.editAddressBtn = document.querySelector(".edit-address-btn");
+
+        this.toast = document.querySelector(".toast");
     }
 
     init() {
@@ -50,16 +51,25 @@ class Dashboard {
         this.addEvents();
     }
 
+    // ✅ single reusable showToast method for whole class
+    showToast(message, type = "success") {
+        this.toast.textContent = message;
+        this.toast.style.backgroundColor = type === "error" ? "#dc3545" : "#215B63";
+
+        this.toast.classList.add("show");
+
+        setTimeout(() => {
+            this.toast.classList.remove("show");
+        }, 2000);
+    }
+
     addEvents() {
-        // section switch
         this.buttons.forEach(btn => {
             btn.addEventListener("click", () => this.switchSection(btn));
         });
 
-        // logout
         this.logoutBtn?.addEventListener("click", () => this.logout());
 
-        // edit address
         this.editAddressBtn?.addEventListener("click", () => this.toggleAddressEdit());
     }
 
@@ -76,11 +86,17 @@ class Dashboard {
     async logout() {
         try {
             await signOut(auth);
-            alert("Logged out");
-            window.location.href = "../auth/Sign-up.html";
+
+            // ✅ show toast first, then redirect after 2s so user sees it
+            this.showToast("Logged out successfully!");
+            setTimeout(() => {
+                window.location.href = "../auth/Sign-up.html";
+            }, 2000);
+
         } catch (err) {
             console.error(err);
-            alert("Logout failed");
+            // ✅ replaced alert with showToast
+            this.showToast("Logout failed", "error");
         }
     }
 
@@ -90,7 +106,6 @@ class Dashboard {
 
             this.currentUser = user;
 
-            // PROFILE DATA
             const userSnap = await getDoc(doc(db, "users", user.uid));
 
             if (userSnap.exists()) {
@@ -99,7 +114,6 @@ class Dashboard {
                 this.profile.email.value = data.email || "";
             }
 
-            // ADDRESS DATA
             const addressSnap = await getDoc(doc(db, "addresses", user.uid));
 
             if (addressSnap.exists()) {
@@ -125,11 +139,9 @@ class Dashboard {
             input.disabled = !this.isEditingAddress;
         });
 
-        // button text change
         this.editAddressBtn.querySelector("span").innerText =
             this.isEditingAddress ? "Save Address" : "Edit Address";
 
-        // if saving
         if (!this.isEditingAddress) {
             this.saveAddress();
         }
@@ -147,14 +159,15 @@ class Dashboard {
                 number: this.addressInputs.phone.value
             });
 
-            alert("Address updated successfully");
+            // ✅ replaced alert with showToast
+            this.showToast("Address updated successfully!");
 
         } catch (err) {
             console.error(err);
-            alert("Failed to update address");
+            // ✅ replaced alert with showToast
+            this.showToast("Failed to update address", "error");
         }
     }
 }
 
-// INIT
 new Dashboard();

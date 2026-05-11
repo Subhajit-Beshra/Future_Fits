@@ -35,7 +35,26 @@ html, body{
     display: flex;
     flex-direction: column;
 }
-
+.toast{
+    position: fixed;
+    top: 10%;
+    right: 0%;
+    height: auto;
+    width: auto;
+    background-color: #215B63;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    opacity: 0;
+    /* visibility: hidden; */
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+}
+.toast.show{
+    opacity: 1;
+    transform: translateX(-20px);
+}
 /* ===== NAVBAR ===== */
 .nav-section{
     border-bottom: 1px solid #BFC9D1;
