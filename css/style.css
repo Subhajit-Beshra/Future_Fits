@@ -355,3 +355,39 @@ body{
 .card p{
     color: #555;
 }
+.slider-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* background-color: #7DAACB; */
+}
+
+.category-demo{
+    /* display: flex;
+    flex-direction: row; */
+    background-color: #7DAACB;
+    width: 100%;
+    padding: 20px;
+}
+.slider{
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding: 10px;
+}
+
+.slider::-webkit-scrollbar{
+    display: none;
+}
+
+.slider-item{
+    min-width: 300px;
+    height: 200px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

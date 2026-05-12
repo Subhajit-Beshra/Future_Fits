@@ -67,3 +67,15 @@ showProduct.addEventListener("click", () => {
 document.getElementById('shopBtn').addEventListener('click', () => {
   window.location.href = "pages/Shop/Shop.html";
 });
+
+const slider = document.querySelector('.slider');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+prevBtn.addEventListener('click', () => {
+  slider.scrollBy({ left: -300, behavior: 'smooth' });
+});
+
+nextBtn.addEventListener('click', () => {
+  slider.scrollBy({ left: 300, behavior: 'smooth' });
+});
