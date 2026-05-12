@@ -319,6 +319,7 @@ body{
 }
 /*3rd div -------> products */
 .demo{
+    margin-top: 50px;
     padding: 10px 20px;
     text-align: center;
     display: flex;
@@ -335,8 +336,11 @@ body{
     padding: 10px 30px;
     cursor: pointer;
     border: none;
-    background-color: #3852B4;
+    background-color: #0D0B61;
     color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
 .card{
@@ -355,26 +359,56 @@ body{
 .card p{
     color: #555;
 }
+.card img{
+    width: 300px;
+    height: 300px;
+}
+/*4th div ---------> category */
+.category-demo{
+    margin-top: 50px;
+    background-color: #093C5D;
+    color: #fff;
+    width: 100%;
+    padding: 80px 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.hero-title{
+    min-width: 300px;
+}
+.hero-text{
+    font-size: 40px;
+    font-weight: bold;
+}
 .slider-container{
+    flex: 1;
+    min-width: 0;
+
     display: flex;
     align-items: center;
     gap: 10px;
-    /* background-color: #7DAACB; */
 }
-
-.category-demo{
-    /* display: flex;
-    flex-direction: row; */
-    background-color: #7DAACB;
-    width: 100%;
-    padding: 20px;
+.hero-sub p{
+    color: #ddd;
+}
+.slider-container button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
 }
 .slider{
+    flex: 1;
+
     display: flex;
     gap: 20px;
+
     overflow-x: auto;
     scroll-behavior: smooth;
-    width: 100%;
+
     padding: 10px;
 }
 
@@ -383,11 +417,21 @@ body{
 }
 
 .slider-item{
-    min-width: 300px;
-    height: 200px;
+    flex: 0 0 400px;
+    height: 400px;
     background: white;
     border-radius: 8px;
+    overflow: hidden;
+
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: black;
 }
+/* .slider-item img{
+    height: auto;
+    width: 400px;
+    /* object-fit: cover; */
+    /* display: block; */
+    /* border-radius: 12px; */
