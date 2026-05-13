@@ -79,3 +79,15 @@ prevBtn.addEventListener('click', () => {
 nextBtn.addEventListener('click', () => {
   slider.scrollBy({ left: 300, behavior: 'smooth' });
 });
+
+const subscribeBtn = document.getElementById('subscribeBtn');
+const input = document.getElementById('email');
+
+subscribeBtn.addEventListener('click', () => {
+  input.value = '';
+  const toast = document.querySelector('.toast');
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+});
