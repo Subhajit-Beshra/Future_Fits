@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Preconnect and preload for faster icon font loading -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"></noscript>
+        <!-- Preload Material Symbols for icons -->
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" media="print" onload="this.media='all'" />
+        <!-- Inline critical CSS for above-the-fold (example, extend as needed) -->
+        <link rel="icon" href="assests/images/Favicon.png" type="image/png">
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="css/style.css">
+    <title>Future_Fits</title>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                 <a href="#"><img src="assests/images/best option.png" alt="picture"></a>
+            </div>
+            <div class="Navlink">
+                <a href="#Home" class="home">Home</a>
+                <a href="#About" class="about">About</a>
+                <a href="pages/Shop/Shop.html" class="shop">Shop</a>
+                <a href="pages/Contact/Contact.html" class="contact">Contact</a>
+            </div>
+            <div class="Profile-Cart">
+                <div class="Profile">
+                    <span class="material-symbols-outlined">
+                        account_circle
+                    </span>
+                    <div class="dropdown">
+                        <div class="dropdown-info">
+                            <div class="sign-in">
+                                <p>New Customer?</p>
+                                <a href="pages/auth/Sign-in.html">Start here</a>
+                            </div>
+                            <div class="dropdown-items">
+                                <a href="pages/dashboard/dashboard.html" id="id1">👤 My Profile</a>
+                                <a href="#orders" id="id2">📦 Orders</a>
+                                <a href="#wishlist" id="id3">❤ Wishlist</a>
+                                <a href="#seller" id="id4">🏪 Become a Seller</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Cart">
+                    <a href="pages/Cart/Cart.html" class="cart-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21 4H6.17l-.18-1.15A1 1 0 0 0 5 2H2v2h2.14l1.87 12.15A1 1 0 0 0 7 17h12v-2H7.86l-.31-2H19c.45 0 .84-.3.96-.73l2-7A1 1 0 0 0 21 3.99Zm-2.75 7H7.24l-.77-5h13.2l-1.43 5ZM8 18a2 2 0 1 0 0 4 2 2 0 1 0 0-4m9 0a2 2 0 1 0 0 4 2 2 0 1 0 0-4"></path>
+                        </svg>
+                    </a>    
+                </div>
+            </div>
+        </div>
+        <div class="hero-section fade-in">
+            <div class="description">
+                <div class="heading">
+                    <h2>WEAR THE FUTURE</h2>
+                    <p>Next-gen streetwear for bold minds.</p>
+                </div>
+                <div class="buttons">
+                    <div class="shop">
+                        <button id = "shopBtn">
+                            <span class="material-symbols-outlined">
+                            <!-- Inline SVG for faster load -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M16 6V4a4 4 0 0 0-8 0v2H4v16h16V6h-4zm-6-2a2 2 0 0 1 4 0v2h-4V4zm8 16H6V8h12v12z"/></svg>
+                            </span>
+                            Shop Now</button>
+                    </div>
+                    <div class="learn">
+
+                        <button id="learnBtn">
+                            <span class="material-symbols-outlined">
+                            <!-- Inline SVG for faster load -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                            </span>
+                            Learn More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="image">
+                <img src="assests/images/tshirt.webp" alt="T-shirt" width="350" height="350">
+            </div>
+        </div>
+        <br></br>
+        <div class="marquee-wrap">
+            <div class="marquee-track" id="marqueeTrack">
+                <span class="marquee-item">NEW ARRIVALS <span class="dot"></span></span>
+                <span class="marquee-item">STREETWEAR <span class="dot"></span></span>
+                <span class="marquee-item">HOODIES <span class="dot"></span></span>
+                <span class="marquee-item">OVERSIZED TEES <span class="dot"></span></span>
+                <span class="marquee-item">JOGGERS <span class="dot"></span></span>
+                <span class="marquee-item">ACCESSORIES <span class="dot"></span></span>
+                <span class="marquee-item">SS 2026 DROP <span class="dot"></span></span>
+                <span class="marquee-item">URBAN WEAR <span class="dot"></span></span>
+                <!-- Duplicate for infinite scroll -->
+                <span class="marquee-item">NEW ARRIVALS <span class="dot"></span></span>
+                <span class="marquee-item">STREETWEAR <span class="dot"></span></span>
+                <span class="marquee-item">HOODIES <span class="dot"></span></span>
+                <span class="marquee-item">OVERSIZED TEES <span class="dot"></span></span>
+                <span class="marquee-item">JOGGERS <span class="dot"></span></span>
+                <span class="marquee-item">ACCESSORIES <span class="dot"></span></span>
+                <span class="marquee-item">SS 2026 DROP <span class="dot"></span></span>
+                <span class="marquee-item">URBAN WEAR <span class="dot"></span></span>
+            </div>
+        </div>
+        <div class="demo">
+            <div class="title">
+                <h1>NEW ARRIVALS</h1>
+            </div>
+            <div class="products"></div>
+            <div class="button">
+                <button id="showProduct">View All Products</button>
+            </div>
+        </div>
+        <div class="category-demo">
+            <div class="hero-title">
+                    <div class="hero-text">
+                        Explore The Future
+                    <br>
+                    <span>By Categories</span>
+                    </div>
+                    <div class="hero-sub">
+                    <p>Streetwear crafted for the next generation. Minimalist cuts, bold statements.</p>
+                </div>
+            </div>
+            <div class="slider-container">
+                <button id="prevBtn">❮</button>
+
+                <div class="slider">
+                    <div class="slider-item" id="men">
+                        <h2>Men</h2>
+                    </div>
+                    <div class="slider-item" id="women"><h2>Women</h2></div>
+                    <div class="slider-item" id="footwear"><h2>Footwear</h2></div>
+                    <div class="slider-item" id="accessories"><h2>Accessories</h2></div>
+                </div>
+
+                <button id="nextBtn">❯</button>
+            </div>
+        </div>
+        <div class="trust">
+            <div class="trust-img"></div>
+            <div class="trust-text">
+                <div class="trust-heading">
+                    <h1>Why people love to shop at Future_Fits</h1>
+                </div>
+                <div class="trust-why">
+                    <ul>
+                        <li>
+                            <h3>Order before 2pm and get your purchase within the day.</h3>
+                        </li>
+                        <li>
+                            <h3>Not your size? Avail of your hassle-free return policy.</h3>
+                        </li>
+                        <li>
+                            <h3>Get 24/7 customer support</h3>
+                        </li>
+                        <li>
+                            <h3>We support contactless payment and cash on delivery.</h3>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="join-club">
+            <div class="join-text">
+                <h1>Join The Club</h1>
+                <p>Subscribe to receive our latest news and exclusive offers</p>
+            </div>
+            <div class="input-section">
+                <input type="text" id="email" placeholder="Your email">
+                <button id="subscribeBtn">Subscribe</button>
+            </div>
+        </div>
+        <div class="footer-section">
+            <div class="f-sec1">
+                <div class="brand">
+                    <h2>FUTURE_FITS</h2>
+                    <p>Bold graphics. Clean cuts. Wear the future — pieces that speak before you do</p>
+                    <div class="social-icons">
+                        <a href="https://x.com/BeshraSubh63113">
+                            <!-- Twitter (minimal) -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22 5.9c-.7.3-1.5.5-2.3.6.8-.5 1.4-1.3 1.7-2.3-.7.4-1.6.7-2.5.9a4 4 0 0 0-6.8 3.6A11.3 11.3 0 0 1 3 4.9a4 4 0 0 0 1.2 5.3c-.6 0-1.2-.2-1.7-.5v.1a4 4 0 0 0 3.2 3.9c-.5.1-1 .2-1.5.1a4 4 0 0 0 3.7 2.8A8 8 0 0 1 2 19.5a11.3 11.3 0 0 0 6.1 1.8c7.3 0 11.3-6 11.3-11.3v-.5c.8-.6 1.5-1.3 2-2.1z"/>
+                            </svg>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/subhajit-beshra-b57b35360/">
+                            <!-- LinkedIn (minimal) -->
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6.94 6.5a2.44 2.44 0 1 1 0-4.88 2.44 2.44 0 0 1 0 4.88zM4.5 8.5h4.9V20h-4.9V8.5zm7.3 0h4.7v1.6h.1c.7-1.2 2.3-2.5 4.7-2.5 5 0 5.9 3.3 5.9 7.6V20h-4.9v-6.6c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V20h-4.9V8.5z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="help">
+                    <h3>HELP</h3>
+                    <a href="#">Track Order</a>
+                    <a href="#">Shipping information</a>
+                    <a href="#">Returns & Exchange</a>
+                    <a href="#">FAQ</a>
+                </div>
+                <div class="company">
+                    <h3>COMPANY</h3>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+                </div>
+                <div class="f-sec2">
+                    <div class="copyright">
+                       <h4>© 2025 Future_Fits. All rights reserved.</h4>
+                       <p>Made in India</p>
+                    </div>
+                    <div class="pay-methods">
+                        <p>UPI</p>
+                        <p>VISA</p>
+                        <p>MASTERCARD</p>
+                        <p>RAZORPAY</p>
+                        <p>COD</p>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <script src="js/script.js" defer></script>
+</body>
+</html>>

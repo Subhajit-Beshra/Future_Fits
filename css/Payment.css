@@ -1,0 +1,266 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/*1st div---> navbar */
+.navbar{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+.logo img{
+    height: auto;
+    width: 150px;
+    cursor: pointer;
+}
+/*2nd div ------> payment-container */
+.payment-container{
+    display: flex;
+    flex-direction: row; 
+    width: 100%;
+    justify-content: space-around;
+    gap: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.payment-container .title-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    gap: 10px;
+}
+.payment-section{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    gap: 20px;
+    width: 660px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;;
+}
+.payment-section .title-section svg{
+    color: #454040;
+}
+.payment-section .heading{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.input-section{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.input-section .select-method{
+    width: 100%;
+}
+.select-method .methods{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.methods a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 6px;
+}
+.input-section input{
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 6px;
+}
+.card-details{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.date-cvv{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+}
+.date, .cvv{
+    width: 100%;
+}
+.c-number, .card-holder, .date, .cvv{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.pay-details{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.button-section{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.pay-btn{
+    width: 100%;
+    padding: 10px 40px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #fff;
+    font-size: 15px;
+    background-color: #67C090;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.pay-btn:hover{
+    background-color: #59AC77;
+}
+.pay-btn:active{
+    background-color: #67C090;
+}
+/* 3rd div ----> order-summary */
+.order-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    width: 300px;
+}
+.summary-product{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+.cost-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0px 20px;
+}
+.price-info{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.price-info p{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.addresses{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0px 20px;
+}
+.user-address{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+/* last div -------> footer */
+.footer-section{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #0f1f1f;
+}
+.f-sec1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px;
+}
+.brand, .help, .company{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 20px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #FFD150;
+}
+.brand h2{
+    font-size: 30px;
+}
+.brand p{
+    color: #EDDCC6;    
+}
+.company a, .help a{
+    text-decoration: none;
+    color: #EDDCC6;
+}
+.social-icons{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.social-icons a{
+    color: #FFD150;
+    border: 1px solid #FFD150;
+    padding: 8px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.f-sec2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid #605B51;
+    margin-bottom: 40px;
+}
+.f-sec2 .copyright{
+    margin-top: 30px;
+}
+.f-sec2 .pay-methods{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+}
+.pay-methods p{
+    border: 1px solid #605B51;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    color: #605B51;;
+}
