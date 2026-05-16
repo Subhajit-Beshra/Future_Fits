@@ -2,10 +2,14 @@
 // ELEMENTS
 // ===============================
 
-const container = document.querySelector(".products-grid");
+const container =
+document.querySelector(".products-grid");
 
-const slider = document.getElementById("countSlider");
-const countDisplay = document.getElementById("count-value");
+const slider =
+document.getElementById("countSlider");
+
+const countDisplay =
+document.getElementById("count-value");
 
 const categoryBoxes =
 document.querySelectorAll('input[name="option"]');
@@ -16,8 +20,11 @@ document.querySelectorAll(".size-btn");
 const colorButtons =
 document.querySelectorAll(".color-btn");
 
-const rating4 = document.getElementById("r4");
-const rating3 = document.getElementById("r3");
+const rating4 =
+document.getElementById("r4");
+
+const rating3 =
+document.getElementById("r3");
 
 
 
@@ -26,9 +33,11 @@ const rating3 = document.getElementById("r3");
 // GLOBAL VARIABLES
 // ===============================
 
+let defaultProducts = [];
+
 let allProducts = [];
 
-let selectedCategory = "mens-shirts";
+let selectedCategory = "all";
 
 let selectedSize = null;
 
@@ -47,10 +56,104 @@ let selectedPrice = 5000;
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    fetchProducts(selectedCategory);
+    loadDefaultProducts();
 
 });
 
+
+
+
+// ===============================
+// LOAD DEFAULT PRODUCTS
+// ===============================
+
+async function loadDefaultProducts() {
+
+    try {
+
+        const data = await Promise.all([
+
+            fetch(
+                "https://dummyjson.com/products/category/mens-shirts?limit=3"
+            ).then(res => res.json()),
+
+            fetch(
+                "https://dummyjson.com/products/category/womens-dresses?limit=3"
+            ).then(res => res.json()),
+
+            fetch(
+                "https://dummyjson.com/products/category/mens-shoes?limit=3"
+            ).then(res => res.json()),
+
+            fetch(
+                "https://dummyjson.com/products/category/womens-shoes?limit=3"
+            ).then(res => res.json()),
+
+            fetch(
+                "https://dummyjson.com/products/category/sunglasses?limit=3"
+            ).then(res => res.json()),
+
+            fetch(
+                "https://dummyjson.com/products/category/womens-bags?limit=3"
+            ).then(res => res.json())
+
+        ]);
+
+
+        defaultProducts = data
+        .flatMap(item => item.products)
+        .map(addDemoData);
+
+
+        allProducts = defaultProducts;
+
+        renderProducts(allProducts);
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+        container.innerHTML =
+        "<h2>Failed to load products 😢</h2>";
+
+    }
+
+}
+
+
+
+
+// ===============================
+// ADD DEMO SIZE + COLOR
+// ===============================
+
+function addDemoData(product) {
+
+    const sizes =
+    ["S", "M", "L", "XL"];
+
+    const colors =
+    ["black", "white", "red", "green"];
+
+    return {
+
+        ...product,
+
+        size:
+        sizes[
+            Math.floor(Math.random() * sizes.length)
+        ],
+
+        color:
+        colors[
+            Math.floor(Math.random() * colors.length)
+        ]
+
+    };
+
+}
 
 
 
@@ -59,22 +162,24 @@ document.addEventListener("DOMContentLoaded", () => {
 // PRICE SLIDER
 // ===============================
 
-if (slider && countDisplay) {
+if(slider && countDisplay) {
 
-    countDisplay.textContent = slider.value;
+    countDisplay.textContent =
+    slider.value;
 
     slider.addEventListener("input", () => {
 
-        selectedPrice = Number(slider.value);
+        selectedPrice =
+        Number(slider.value);
 
-        countDisplay.textContent = slider.value;
+        countDisplay.textContent =
+        slider.value;
 
         applyFilters();
 
     });
 
 }
-
 
 
 
@@ -96,138 +201,57 @@ categoryBoxes.forEach(box => {
 
 
 
-function handleCategory(category) {
+async function handleCategory(category) {
+
+    selectedCategory = category;
+
+
+    // SHOW ALL PRODUCTS
+    if(category === "all") {
+
+        allProducts = defaultProducts;
+
+        applyFilters();
+
+        return;
+
+    }
+
+
+    let apiCategory = "";
+
 
     switch(category) {
 
         case "tops":
-            selectedCategory = "mens-shirts";
+            apiCategory = "mens-shirts";
             break;
 
         case "bottoms":
-            selectedCategory = "tops";
+            apiCategory = "mens-pants";
             break;
 
         case "outerwear":
-            selectedCategory = "mens-shoes";
+            apiCategory = "mens-jackets";
             break;
 
         case "footwear":
-            selectedCategory = "mens-shoes";
+            apiCategory = "mens-shoes";
             break;
 
         case "accessories":
-            selectedCategory = "sunglasses";
-            break;
-
-        case "all":
-            selectedCategory = "mens-shirts";
+            apiCategory = "sunglasses";
             break;
 
         default:
-            selectedCategory = "mens-shirts";
+            apiCategory = "mens-shirts";
 
     }
 
-    fetchProducts(selectedCategory);
+
+    fetchProducts(apiCategory);
 
 }
-
-
-
-
-
-// ===============================
-// SIZE FILTER
-// ===============================
-
-sizeButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        sizeButtons.forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-        button.classList.add("active");
-
-        selectedSize = button.dataset.style;
-
-        applyFilters();
-
-    });
-
-});
-
-
-
-
-
-// ===============================
-// COLOR FILTER
-// ===============================
-
-colorButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        colorButtons.forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-        button.classList.add("active");
-
-        selectedColor = button.dataset.style;
-
-        applyFilters();
-
-    });
-
-});
-
-
-
-
-
-// ===============================
-// RATING FILTER
-// ===============================
-
-rating4.addEventListener("change", () => {
-
-    if(rating4.checked) {
-
-        selectedRating = 4;
-
-    } else {
-
-        selectedRating = 0;
-
-    }
-
-    applyFilters();
-
-});
-
-
-
-rating3.addEventListener("change", () => {
-
-    if(rating3.checked) {
-
-        selectedRating = 3;
-
-    } else {
-
-        selectedRating = 0;
-
-    }
-
-    applyFilters();
-
-});
-
-
 
 
 
@@ -241,39 +265,15 @@ async function fetchProducts(category) {
     try {
 
         const response = await fetch(
-            `https://dummyjson.com/products/category/${category}?limit=12`
+            `https://dummyjson.com/products/category/${category}`
         );
 
-        const data = await response.json();
+        const data =
+        await response.json();
 
 
-
-        // ADD DEMO SIZE + COLOR
-        allProducts = data.products.map(product => {
-
-            const sizes =
-            ["S", "M", "L", "XL"];
-
-            const colors =
-            ["black", "white", "red", "green"];
-
-            return {
-
-                ...product,
-
-                size:
-                sizes[
-                    Math.floor(Math.random() * sizes.length)
-                ],
-
-                color:
-                colors[
-                    Math.floor(Math.random() * colors.length)
-                ]
-
-            };
-
-        });
+        allProducts =
+        data.products.map(addDemoData);
 
 
         applyFilters();
@@ -285,7 +285,7 @@ async function fetchProducts(category) {
         console.error("API Error:", error);
 
         container.innerHTML =
-        "<p>Failed to load products 😢</p>";
+        "<h2>Failed to load products 😢</h2>";
 
     }
 
@@ -293,6 +293,91 @@ async function fetchProducts(category) {
 
 
 
+
+// ===============================
+// SIZE FILTER
+// ===============================
+
+sizeButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        sizeButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+        selectedSize =
+        button.dataset.style;
+
+        applyFilters();
+
+    });
+
+});
+
+
+
+
+// ===============================
+// COLOR FILTER
+// ===============================
+
+colorButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        colorButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+        selectedColor =
+        button.dataset.style;
+
+        applyFilters();
+
+    });
+
+});
+
+
+
+
+// ===============================
+// RATING FILTER
+// ===============================
+
+function updateRating() {
+
+    selectedRating = Math.max(
+
+        rating4.checked ? 4 : 0,
+
+        rating3.checked ? 3 : 0
+
+    );
+
+    applyFilters();
+
+}
+
+
+rating4.addEventListener(
+    "change",
+    updateRating
+);
+
+rating3.addEventListener(
+    "change",
+    updateRating
+);
 
 
 
@@ -303,7 +388,8 @@ async function fetchProducts(category) {
 
 function applyFilters() {
 
-    let filteredProducts = allProducts.filter(product => {
+    const filteredProducts =
+    allProducts.filter(product => {
 
 
         // PRICE
@@ -331,10 +417,12 @@ function applyFilters() {
 
 
         return (
+
             matchPrice &&
             matchRating &&
             matchSize &&
             matchColor
+
         );
 
     });
@@ -343,7 +431,6 @@ function applyFilters() {
     renderProducts(filteredProducts);
 
 }
-
 
 
 
@@ -367,16 +454,16 @@ function renderProducts(products) {
     }
 
 
-
     products.forEach(product => {
 
-        const card = document.createElement("div");
+        const card =
+        document.createElement("div");
 
         card.classList.add("product-card");
 
 
         card.innerHTML = `
-            
+
             <div class="card-hero">
 
                 <span class="material-symbols-outlined favorite-icon">
@@ -421,9 +508,7 @@ function renderProducts(products) {
                 <div class="prod-price-low">
 
                     <div class="prod-price">
-
                         $${product.price}
-
                     </div>
 
 
@@ -443,12 +528,13 @@ function renderProducts(products) {
         `;
 
 
-        container.appendChild(card);
+        // CARD CLICK
         card.addEventListener("click", () => {
-            window.location.href = `../Product/Product.html?id=${product.id}`;
+
+            window.location.href =
+            `../Product/Product.html?id=${product.id}`;
+
         });
-
-
 
 
         // FAVORITE BUTTON
@@ -456,11 +542,16 @@ function renderProducts(products) {
         card.querySelector(".favorite-icon");
 
 
-        favoriteIcon.addEventListener("click", () => {
+        favoriteIcon.addEventListener("click", (e) => {
+
+            e.stopPropagation();
 
             favoriteIcon.classList.toggle("active");
 
         });
+
+
+        container.appendChild(card);
 
     });
 
