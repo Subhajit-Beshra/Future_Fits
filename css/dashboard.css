@@ -244,4 +244,33 @@ html, body{
     align-items: center;
     justify-content: center;
 }
+/* wishlist-container*/
+.wishlist-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+.wishlist-card{
+    height: 400px;
+    width: 300px;
+    background-color: #DFF1F1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.remove-btn{
+    margin-top: 10px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #FA6781;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 

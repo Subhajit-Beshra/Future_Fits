@@ -44,11 +44,13 @@ class Dashboard {
         this.editAddressBtn = document.querySelector(".edit-address-btn");
 
         this.toast = document.querySelector(".toast");
+        this.wishlistContainer = document.getElementById("wishlist-container");
     }
 
     init() {
         this.handleAuth();
         this.addEvents();
+        this.renderWishlistFromStorage();
     }
 
     // ✅ single reusable showToast method for whole class
@@ -167,6 +169,37 @@ class Dashboard {
             // ✅ replaced alert with showToast
             this.showToast("Failed to update address", "error");
         }
+    }
+    renderWishlistFromStorage(){
+
+        const wishlist = JSON.parse(localStorage.getItem("wishlist") || []);
+        this.wishlistContainer.innerHTML = " ";
+        if(wishlist.length === 0){
+            this.wishlistContainer.innerHTML = "<p>Your wishlist is empty</p>"
+            return;
+        }
+        wishlist.forEach(product => {
+            const card = document.createElement("div");
+            card.classList.add("wishlist-card");
+            card.innerHTML = `
+            <img src = "${product.thumbnail}" alt = "${product.title}">
+            <h3>${product.title}</h3>
+            <p>$${product.price}</p>
+            <button class = "remove-btn">Remove</button>
+            `;
+            const removeBtn = card.querySelector(".remove-btn");
+            removeBtn.addEventListener("click", () => {
+                this.removeWishlist(product.id);
+            })
+            this.wishlistContainer.appendChild(card);
+
+        });
+    }
+    removeWishlist(id){
+        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        wishlist = wishlist.filter(item => item.id !== id);
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+        this.renderWishlistFromStorage();
     }
 }
 

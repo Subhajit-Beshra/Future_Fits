@@ -431,9 +431,18 @@ function applyFilters() {
     renderProducts(filteredProducts);
 
 }
+// ===============================
+// CHECK WISHLIST
+// ===============================
 
+function isInWishlist(id) {
 
+    const wishlist =
+    JSON.parse(localStorage.getItem("wishlist")) || [];
 
+    return wishlist.some(item => item.id === id);
+
+}
 
 // ===============================
 // RENDER PRODUCTS
@@ -541,12 +550,25 @@ function renderProducts(products) {
         const favoriteIcon =
         card.querySelector(".favorite-icon");
 
+        favoriteIcon.classList.toggle("active", isInWishlist(product.id));
 
         favoriteIcon.addEventListener("click", (e) => {
-
             e.stopPropagation();
 
-            favoriteIcon.classList.toggle("active");
+            const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+            const idx = wishlist.findIndex(item => item.id === product.id);
+
+            if (idx === -1) {
+                // add to wishlist
+                wishlist.push(product);
+                favoriteIcon.classList.add("active");
+            } else {
+                // remove from wishlist
+                wishlist.splice(idx, 1);
+                favoriteIcon.classList.remove("active");
+            }
+
+            localStorage.setItem("wishlist", JSON.stringify(wishlist));
 
         });
 
