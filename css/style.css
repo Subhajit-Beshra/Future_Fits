@@ -166,11 +166,10 @@ body{
     color: white;
 }
 .Cart{
+    position: relative;
     cursor: pointer;
     gap: 8px;
     padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 .cart-link{
@@ -189,6 +188,19 @@ body{
 .Cart:hover span,
 .Cart:hover p{
     color: white;
+}
+.cartNum {
+    position: absolute;
+    top: 1px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    background-color: #FF0000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /* 2nd div -----> hero section*/
 /* .hero-section{

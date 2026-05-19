@@ -91,3 +91,25 @@ subscribeBtn.addEventListener('click', () => {
     toast.classList.remove('show');
   }, 3000);
 });
+
+//Page load and cart number rendering
+document.addEventListener("DOMContentLoaded", () => {
+
+  updateCartCount();
+
+});
+window.addEventListener("storage", () => {
+
+  updateCartCount();
+
+});
+function updateCartCount(){
+
+  const cartNum = document.querySelector(".cartNum");
+  const cart =
+  JSON.parse(localStorage.getItem("cart")) || [];
+
+  cartNum.textContent =
+  cart.length;
+
+}

@@ -273,4 +273,36 @@ html, body{
     border-radius: 4px;
     cursor: pointer;
 }
-
+/* cart Items*/
+.checkout-container{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.summary-product{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.summary-product img{
+    background-color: #C4E2F5;
+    height: auto;
+    width: 180px;
+    border-radius: 12px;
+}
+.summary-information, .more-details{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.summary-information{
+    width: 100%;
+}
+.removeBtn{
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #FA6781;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

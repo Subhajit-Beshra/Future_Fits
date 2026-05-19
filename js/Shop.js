@@ -57,10 +57,29 @@ let selectedPrice = 5000;
 document.addEventListener("DOMContentLoaded", () => {
 
     loadDefaultProducts();
+    updateCartCount();
 
 });
 
+//===============================
+//LOAD CARTCOUNT
+//================================
+window.addEventListener("storage", () => {
 
+    updateCartCount();
+
+});
+
+function updateCartCount(){
+
+    const cartNum = document.querySelector(".cartNum");
+    const cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+    cartNum.textContent =
+    cart.length;
+
+}
 
 
 // ===============================

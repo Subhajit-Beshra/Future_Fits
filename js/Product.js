@@ -14,7 +14,7 @@ if (!productId) {
             <div class = "container-1">
                 <img src="${product.thumbnail}" alt="${product.title}" />
                 <div class = "buttons">
-                    <button onClick = "addToCart(${product.id})" class="add-to-cart">Add to Cart</button>
+                    <button onclick = "addCart(${product.id})" class="add-to-cart">Add to Cart</button>
                     <button onClick = "buyNow(${product.id})" class="buy-now">Buy Now</button>
                 </div>
             </div>
@@ -106,9 +106,42 @@ if (!productId) {
     });
 
 }
-function addToCart(id) {
-    // alert(`Product with ID ${id} added to cart!`)
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+const cartNum = document.querySelector(".cartNum");
+
+function updateCartUI() {
+    cartNum.textContent = cart.length;
 }
+
+updateCartUI();
+
+function addCart(id) {
+
+    fetch(`https://dummyjson.com/products/${id}`)
+    .then(res => res.json())
+    .then(product => {
+
+        const alreadyExist = cart.some(item => item.id === id);
+
+        if(alreadyExist){
+            document.querySelector(".toast").classList.add("show");
+
+            setTimeout(() => {
+                document.querySelector(".toast").classList.remove("show");
+            }, 2000);
+
+            return;
+        }
+
+        cart.push(product);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        updateCartUI();
+    });
+}
+
 function buyNow(id) {
     // alert(`Proceeding to buy product with ID ${id}!`);
     window.location.href = `../CheckPage/CheckPage.html?id=${id}`;

@@ -45,12 +45,14 @@ class Dashboard {
 
         this.toast = document.querySelector(".toast");
         this.wishlistContainer = document.getElementById("wishlist-container");
+        this.checkoutContainer = document.getElementById("checkout-container");
     }
 
     init() {
         this.handleAuth();
         this.addEvents();
         this.renderWishlistFromStorage();
+        this.renderCartItemsFromStorage();
     }
 
     // ✅ single reusable showToast method for whole class
@@ -170,6 +172,8 @@ class Dashboard {
             this.showToast("Failed to update address", "error");
         }
     }
+
+    // Rendering wishlist items
     renderWishlistFromStorage(){
 
         const wishlist = JSON.parse(localStorage.getItem("wishlist") || []);
@@ -200,6 +204,52 @@ class Dashboard {
         wishlist = wishlist.filter(item => item.id !== id);
         localStorage.setItem("wishlist", JSON.stringify(wishlist));
         this.renderWishlistFromStorage();
+    }
+
+    //Rendering Cart Items
+    renderCartItemsFromStorage(){
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        this.checkoutContainer.innerHTML = " ";
+        if(cart.length == 0){
+            this.checkoutContainer.innerHTML = "<p>You haven't added any cart yet!</p>";
+            return;
+        }else{
+            cart.forEach(product => {
+                const card = document.createElement("div");
+                card.classList.add("checkout");
+                card.innerHTML = `
+                    <div class = "product-information">
+                        <div class = "summary-product">
+                            <img src= "${product.thumbnail}" alt = "${product.title}">
+                            <div class = "summary-information">
+                                <h4>${product.title}</h4>
+                                <div class = "more-details">
+                                    <p>Qyt: 1</p>
+                                    <p>Size: Medium</p>
+                                    <h2>$${product.price}</h2>
+                                    <div class= "button">
+                                        <button class = "removeBtn">Remove</button>
+                                    </div>    
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                `;
+                const removeBtn = card.querySelector(".removeBtn");
+                removeBtn.addEventListener("click", () => {
+                    this.removeItem(product.id);
+                })
+                this.checkoutContainer.appendChild(card);
+
+            });
+        }
+    }
+    removeItem(id){
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart = cart.filter(item => item.id !== id);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        this.renderCartItemsFromStorage();
     }
 }
 
