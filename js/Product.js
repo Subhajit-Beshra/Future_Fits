@@ -106,7 +106,7 @@ if (!productId) {
     });
 
 }
-
+//Cart Logic
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 const cartNum = document.querySelector(".cartNum");
 
