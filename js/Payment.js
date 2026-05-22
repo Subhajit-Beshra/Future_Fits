@@ -349,6 +349,12 @@ payBtn.addEventListener("click", async() => {
         // REDIRECT
         // =========================
 
+        if (!productId) {
+            console.error("Payment: missing product id, cannot redirect to SuccessPage");
+            alert("Error: Product information missing");
+            return;
+        }
+
         window.location.href =
         `../SuccessPage/SuccessPage.html?id=${productId}&orderId=${orderId}`;
 

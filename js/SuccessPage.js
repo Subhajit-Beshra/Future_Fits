@@ -22,11 +22,14 @@ const orderIdFromURL = params.get("orderId");
 
 
 // Fetch Product
-fetch(`https://dummyjson.com/products/${productId}`)
-.then(res => res.json())
-.then(product => {
+if (!productId) {
+    console.error("SuccessPage: missing product id in URL");
+} else {
+    fetch(`https://dummyjson.com/products/${productId}`)
+    .then(res => res.json())
+    .then(product => {
 
-    console.log(product);
+        console.log(product);
 
     const productInfo = document.querySelector(".product-info");
     const costInfo = document.querySelector(".cost-info");
@@ -96,7 +99,7 @@ fetch(`https://dummyjson.com/products/${productId}`)
 .catch(error => {
     console.log(error);
 });
-
+}
 
 // Firebase Auth
 onAuthStateChanged(auth, async(user) => {
@@ -215,7 +218,35 @@ onAuthStateChanged(auth, async(user) => {
 
 });
 
+//Additional buttons
+const continueBtn = document.getElementById("continue");
+const invoiceBtn = document.getElementById("invoice");
+continueBtn.addEventListener("click", () => {
+    window.location.href = "../Shop/Shop.html";
+});
+invoiceBtn.addEventListener("click", () => {
+    window.location.href = `../Invoice/Invoice.html?id=${productId}&orderId=${orderIdFromURL}`;
+    console.log(productId);
+    console.log(orderIdFromURL);
+})
+//Show confetti!
 
+document.addEventListener("DOMContentLoaded", () => {
+    confetti({
+        particleCount: 300,
+        angle: 60,
+        spread: 55,
+        colors: ['#22c55e','#86efac','#4ade80','#fbbf24','#f472b6','#60a5fa','#a78bfa','#fb923c'],
+        origin: {x:0}
+    })
+    confetti({
+        particleCount: 300,
+        angle: 120,
+        spread: 55,
+        colors: ['#22c55e','#86efac','#4ade80','#fbbf24','#f472b6','#60a5fa','#a78bfa','#fb923c'],
+        origin: {x:1}
+    })
+});
 // Animation
 const elements = document.querySelectorAll(".fade-in");
 
